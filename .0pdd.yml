@@ -1,0 +1,9 @@
+errors:
+  - evgenedar@mail.ru
+alerts:
+  github:
+    - EugeneDar
+
+tags:
+  - pdd
+  - bug
