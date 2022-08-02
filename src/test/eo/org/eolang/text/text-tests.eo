@@ -69,13 +69,15 @@
   assert-that > @
     length.
       at.
-        "abc"
+        text 
+          "abc"
         0
     $.equal-to 1
 
 [] > at-returns-desired-character
   assert-that > @
     at.
-      "abc"
+      text
+        "abc"
       1
     $.equal-to "b"
