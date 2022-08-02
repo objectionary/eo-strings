@@ -64,3 +64,18 @@
           * " " " "
       * "start" "end"
     $.equal-to "start & end"
+
+[] > at-returns-one-character
+  assert-that > @
+    length.
+      at.
+        "abc"
+        0
+    $.equal-to 1
+
+[] > at-returns-desired-character
+  assert-that > @
+    at.
+      "abc"
+      1
+    $.equal-to "b"
