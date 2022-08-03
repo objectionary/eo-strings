@@ -69,7 +69,7 @@
   assert-that > @
     length.
       at.
-        text 
+        text
           "abc"
         0
     $.equal-to 1
