@@ -43,6 +43,6 @@
           (acc.concat (x.as-bytes))
           ((acc.concat (x.as-bytes)).concat (s.as-bytes))
     res.as-string > @
-  
+
   [i] > at
     ^.s.slice i 1 > @
