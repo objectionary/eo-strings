@@ -78,6 +78,6 @@
   assert-that > @
     at.
       text
-        "abc"
-      1
-    $.equal-to "b"
+        "Привет, 世界"
+      8
+    $.equal-to "世"
