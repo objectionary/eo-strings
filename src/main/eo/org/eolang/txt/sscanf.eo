@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2022 Eugene Darashkevich
+#  2016-2022 Objectionary.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,26 +20,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+alias org.eolang.collections.list
++architect yegor256@gmail.com
 +home https://github.com/objectionary/eo
-+package org.eolang.text
++package org.eolang.txt
 +rt jvm org.eolang:eo-runtime:0.0.0
 +version 0.0.0
 
-[s] > text
-
-  s > @
-
-  # Joins an array of strings, using current string
-  # as a delimiter
-  [items] > joined
-    reducei. > res!
-      list
-        items
-      ("".as-bytes)
-      [acc i x]
-        if. > @
-          i.eq ((items.length).minus 1)
-          (acc.concat (x.as-bytes))
-          ((acc.concat (x.as-bytes)).concat (s.as-bytes))
-    res.as-string > @
+# Reads formatted input from a string.
+# This object with two free attributes:
+# 1. format - is a formatter string (e.g. "Hello, %s!")
+# 2. read - is a string where data exists (e.g. "Hello, John!")
+# returns an array of formatted values (e.g. * "John").
+[format read] > sscanf /array
