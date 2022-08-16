@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2016-2022 Objectionary.com
+ * Copyright (c) 2022 Eugene Darashkevich
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,6 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+/**
+ * EO org.eolang.txt package.
+ *
+ * @since 0.0.0
+ * @checkstyle PackageNameCheck (4 lines)
+ */
 package EOorg.EOeolang.EOtxt;
 
 import org.eolang.Data;
@@ -39,9 +46,9 @@ public final class EOtextEOtrimTest {
 
     @Test
     public void trimsString() {
-        final String s = "Hello, world!  ";
+        final String str = "Hello, world!  ";
         final Phi text = new EOtext(Phi.Φ);
-        text.attr("s").put(new Data.ToPhi(s));
+        text.attr("s").put(new Data.ToPhi(str));
         final Phi phi = new EOtext$EOtrim(text);
         MatcherAssert.assertThat(
             new Dataized(phi).take(String.class),
