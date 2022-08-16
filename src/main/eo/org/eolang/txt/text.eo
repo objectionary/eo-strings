@@ -66,3 +66,6 @@
   #
   # Returns string in upper case
   [] > upper-case /string
+
+  [i] > at
+    ^.s.slice i 1 > @

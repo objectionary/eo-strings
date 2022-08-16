@@ -151,3 +151,20 @@
   assert-that > @
     ((text "some text here").index-of "  here")
     $.equal-to -1
+
+[] > at-returns-one-character
+  assert-that > @
+    length.
+      at.
+        text
+          "abc"
+        0
+    $.equal-to 1
+
+[] > at-returns-desired-character
+  assert-that > @
+    at.
+      text
+        "Привет, 世界"
+      8
+    $.equal-to "世"
