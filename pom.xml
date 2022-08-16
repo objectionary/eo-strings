@@ -27,7 +27,7 @@ SOFTWARE.
   <parent>
     <groupId>com.jcabi</groupId>
     <artifactId>parent</artifactId>
-    <version>0.57.2</version>
+    <version>0.60.4</version>
   </parent>
   <groupId>org.eolang</groupId>
   <artifactId>eo-strings</artifactId>
