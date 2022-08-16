@@ -63,7 +63,7 @@
 
   # Returns string in lower case
   [] > lower-case /string
-  #
+
   # Returns string in upper case
   [] > upper-case /string
 
