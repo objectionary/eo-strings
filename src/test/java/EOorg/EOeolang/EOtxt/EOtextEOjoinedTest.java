@@ -25,7 +25,7 @@
 /**
  * EO org.eolang.txt package.
  *
- * @since 0.0.0
+ * @since 0.0
  * @checkstyle PackageNameCheck (4 lines)
  */
 package EOorg.EOeolang.EOtxt;
@@ -41,7 +41,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test case for {@link EOtext$EOjoined}.
  *
- * @since 0.1
+ * @since 0.0
  */
 public final class EOtextEOjoinedTest {
 

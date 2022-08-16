@@ -25,7 +25,7 @@
 /**
  * EO org.eolang.txt package.
  *
- * @since 0.0.0
+ * @since 0.0
  * @checkstyle PackageNameCheck (4 lines)
  */
 package EOorg.EOeolang.EOtxt;
