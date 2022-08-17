@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2022 Eugene Darashkevich
+#  2016-2022 Objectionary.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,8 +21,9 @@
 # SOFTWARE.
 
 +alias org.eolang.collections.list
++architect yegor256@gmail.com
 +home https://github.com/objectionary/eo
-+package org.eolang.text
++package org.eolang.txt
 +rt jvm org.eolang:eo-runtime:0.0.0
 +version 0.0.0
 
@@ -30,10 +31,13 @@
 
   s > @
 
+  # Trim it from both sides
+  [] > trim /string
+
   # Joins an array of strings, using current string
   # as a delimiter
   [items] > joined
-    reducei. > res!
+    reducedi. > res!
       list
         items
       ("".as-bytes)
@@ -43,6 +47,25 @@
           (acc.concat (x.as-bytes))
           ((acc.concat (x.as-bytes)).concat (s.as-bytes))
     res.as-string > @
+
+  # Checks that string contains substr
+  [substr] > contains /bool
+
+  # Checks that string ends with substr
+  [substr] > ends-with /bool
+
+  # Checks that string starts with substr
+  [substr] > starts-with /bool
+
+  # Returns index of substr in string,
+  # if no element was found, it returns -1
+  [substr] > index-of /int
+
+  # Returns string in lower case
+  [] > lower-case /string
+
+  # Returns string in upper case
+  [] > upper-case /string
 
   [i] > at
     ^.s.slice i 1 > @
