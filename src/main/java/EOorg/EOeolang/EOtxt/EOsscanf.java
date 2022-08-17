@@ -22,24 +22,26 @@
  * SOFTWARE.
  */
 
-/*
+/**
+ * EO org.eolang.txt package.
+ *
+ * @since 0.0
  * @checkstyle PackageNameCheck (4 lines)
  */
 package EOorg.EOeolang.EOtxt;
-
-import org.eolang.ExFailure;
-import org.eolang.AtComposite;
-import org.eolang.AtFree;
-import org.eolang.Data;
-import org.eolang.Param;
-import org.eolang.PhDefault;
-import org.eolang.Phi;
-import org.eolang.XmirObject;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import org.eolang.AtComposite;
+import org.eolang.AtFree;
+import org.eolang.Data;
+import org.eolang.ExFailure;
+import org.eolang.Param;
+import org.eolang.PhDefault;
+import org.eolang.Phi;
+import org.eolang.XmirObject;
 
 /**
  * Sscanf.
