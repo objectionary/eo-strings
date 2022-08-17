@@ -43,7 +43,7 @@ import org.eolang.XmirObject;
 /**
  * REGEX.COMPILE.
  *
- * @since 0.23
+ * @since 0.0
  * @checkstyle TypeNameCheck (5 lines)
  */
 @XmirObject(oname = "regex.compile")
