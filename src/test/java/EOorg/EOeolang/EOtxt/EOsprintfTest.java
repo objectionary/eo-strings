@@ -50,17 +50,17 @@ public final class EOsprintfTest {
         final Phi format = new Data.ToPhi("Hello, %d!");
         final Phi num = new Data.ToPhi(1L);
         final Phi phi = new PhWith(
-            new PhWith(
-                new EOsprintf(Phi.Φ),
-                "format",
-                format
-            ),
-            "args",
-            num
+                new PhWith(
+                        new EOsprintf(Phi.Φ),
+                        "format",
+                        format
+                ),
+                "args",
+                num
         );
         MatcherAssert.assertThat(
-            new Dataized(phi).take(String.class),
-            Matchers.equalTo("Hello, 1!")
+                new Dataized(phi).take(String.class),
+                Matchers.equalTo("Hello, 1!")
         );
     }
 
@@ -74,9 +74,46 @@ public final class EOsprintfTest {
         phi = new PhWith(phi, 1, num);
         phi = new PhWith(phi, 2, num);
         MatcherAssert.assertThat(
-            new Dataized(phi).take(String.class),
-            Matchers.equalTo("Hello, 5 5!")
+                new Dataized(phi).take(String.class),
+                Matchers.equalTo("Hello, 5 5!")
         );
     }
 
+    @Test
+    public void printsStringWithBytes() {
+        final Phi format = new Data.ToPhi("%c");
+        final Phi num = new Data.ToPhi(new byte[] {0x49});
+        final Phi phi = new PhWith(
+                new PhWith(
+                        new EOsprintf(Phi.Φ),
+                        "format",
+                        format
+                ),
+                "args",
+                num
+        );
+        MatcherAssert.assertThat(
+                new Dataized(phi).take(String.class),
+                Matchers.equalTo("I")
+        );
+    }
+
+    @Test
+    public void printsStringWithBytesAndEmptyFormatString() {
+        final Phi format = new Data.ToPhi("");
+        final Phi num = new Data.ToPhi(new byte[] {0x49});
+        final Phi phi = new PhWith(
+                new PhWith(
+                        new EOsprintf(Phi.Φ),
+                        "format",
+                        format
+                ),
+                "args",
+                num
+        );
+        MatcherAssert.assertThat(
+                new Dataized(phi).take(String.class),
+                Matchers.equalTo("")
+        );
+    }
 }
