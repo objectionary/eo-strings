@@ -69,3 +69,7 @@
 
   [i] > at
     ^.s.slice i 1 > @
+
+  # Returns string where all substrings
+  # substr1 changed to substr2
+  [substr1 substr2] > replaced /string

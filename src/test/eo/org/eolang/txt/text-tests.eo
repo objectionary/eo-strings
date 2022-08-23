@@ -168,3 +168,30 @@
         "Привет, 世界"
       8
     $.equal-to "世"
+
+[] > text-replaced
+  assert-that > @
+    replaced.
+      text
+        "abacaba"
+      "aba"
+      "c"
+    $.equal-to "ccc"
+
+[] > text-replaced-2
+  assert-that > @
+    replaced.
+      text
+        "abacaba"
+      "w"
+      "c"
+    $.equal-to "abacaba"
+
+[] > text-replaced-3
+  assert-that > @
+    replaced.
+      text
+        "abacaba"
+      "abacaba"
+      "abacaba"
+    $.equal-to "abacaba"
