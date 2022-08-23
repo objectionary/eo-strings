@@ -52,8 +52,8 @@ public class EOtext$EOreplaced extends PhDefault {
      * Ctor.
      *
      * @param sigma Sigma
-     * @todo #21:30min Current implementation using Java,
-     * we should implement it only via EOLANG
+     * @todo #21:30min Current implementation using Java.
+     *  We should implement it only via EOLANG.
      */
     public EOtext$EOreplaced(final Phi sigma) {
         super(sigma);
