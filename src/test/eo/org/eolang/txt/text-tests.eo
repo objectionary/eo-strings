@@ -187,11 +187,20 @@
       "c"
     $.equal-to "abacaba"
 
-[] > text-replaced-3
+[] > text-replaced-russian
   assert-that > @
     replaced.
       text
-        "abacaba"
-      "abacaba"
-      "abacaba"
-    $.equal-to "abacaba"
+        "Привет, мир!"
+      "Привет, мир!"
+      "Привет, мир!"
+    $.equal-to "Привет, мир!"
+
+[] > text-replaced-russian-2
+  assert-that > @
+    replaced.
+      text
+        "Hello, мир!"
+      "Hello"
+      "Привет"
+    $.equal-to "Привет, мир!"
