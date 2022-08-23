@@ -55,16 +55,16 @@ public class EOtext$EOreplaced extends PhDefault {
      */
     public EOtext$EOreplaced(final Phi sigma) {
         super(sigma);
-        this.add("substr1", new AtFree());
-        this.add("substr2", new AtFree());
+        this.add("target", new AtFree());
+        this.add("replacement", new AtFree());
         this.add(
             "φ",
             new AtComposite(
                 this,
                 rho -> {
-                    final String oldsubstr = new Dataized(rho.attr("substr1").get())
+                    final String oldsubstr = new Dataized(rho.attr("target").get())
                         .take(String.class);
-                    final String newsubstr = new Dataized(rho.attr("substr2").get())
+                    final String newsubstr = new Dataized(rho.attr("replacement").get())
                         .take(String.class);
                     final Phi text = rho.attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
