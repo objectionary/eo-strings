@@ -62,13 +62,13 @@ public class EOtext$EOreplaced extends PhDefault {
             new AtComposite(
                 this,
                 rho -> {
-                    final String oldSubstring = new Dataized(rho.attr("substr1").get())
+                    final String oldsubstr = new Dataized(rho.attr("substr1").get())
                         .take(String.class);
-                    final String newSubstring = new Dataized(rho.attr("substr2").get())
+                    final String newsubstr = new Dataized(rho.attr("substr2").get())
                         .take(String.class);
                     final Phi text = rho.attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
-                    return new Data.ToPhi(content.replaceAll(oldSubstring, newSubstring));
+                    return new Data.ToPhi(content.replaceAll(oldsubstr, newsubstr));
                 }
             )
         );
