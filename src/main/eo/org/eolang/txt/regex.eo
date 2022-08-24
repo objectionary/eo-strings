@@ -60,7 +60,12 @@
 
   # A string with all encounters of pattern in txt
   # replaced with rpl
-  [txt rpl] > replaced
+  [txt coded-rpl] > replaced
+
+    # replace numbers of blocks like "$1" to its group.
+    # takes rpl and list of blocks.
+    [old-rpl blocks] > uncoded-rpl
+      coded-rpl > @
 
     # Perform partial replace operation for
     # pt - next unhandled index in text
@@ -92,8 +97,9 @@
               minus.
                 mitem.at 0
                 pt
-            rpl
-
+            uncoded-rpl
+              coded-rpl
+              m.at 0
       [] > nextacc
         joined. > @!
           (text "")
