@@ -72,4 +72,4 @@
 
   # Returns string where all substrings
   # target changed to replacement
-  [target substr2] > replaced /string
+  [target replacement] > replaced /string
