@@ -71,7 +71,7 @@
   [i] > at
     ^.s.slice i 1 > @
 
-  # Returns the text as an integer
+  # Returns the text as integer
   [] > as-int
     at. > @
       sscanf
