@@ -71,4 +71,9 @@
     ^.s.slice i 1 > @
 
   # Returns
-  [] > as-int /int
+  [] > as-int
+    at. > @
+      QQ.txt.sscanf
+        "%d"
+        s
+      0
