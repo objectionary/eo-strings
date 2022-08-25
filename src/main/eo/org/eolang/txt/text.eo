@@ -69,3 +69,6 @@
 
   [i] > at
     ^.s.slice i 1 > @
+
+  # Returns
+  [] > as-int /int
