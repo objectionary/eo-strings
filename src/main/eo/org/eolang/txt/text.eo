@@ -71,6 +71,10 @@
   [i] > at
     ^.s.slice i 1 > @
 
+  # Returns string where all substrings
+  # target changed to replacement
+  [target replacement] > replaced /string
+
   # Returns the text as integer
   [] > as-int
     at. > @
@@ -78,3 +82,4 @@
         "%d"
         s
       0
+

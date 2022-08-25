@@ -169,6 +169,42 @@
       8
     $.equal-to "世"
 
+[] > text-replaced
+  assert-that > @
+    replaced.
+      text
+        "abacaba"
+      "aba"
+      "c"
+    $.equal-to "ccc"
+
+[] > text-replaced-2
+  assert-that > @
+    replaced.
+      text
+        "abacaba"
+      "w"
+      "c"
+    $.equal-to "abacaba"
+
+[] > text-replaced-russian
+  assert-that > @
+    replaced.
+      text
+        "Привет, мир!"
+      "Привет, мир!"
+      "Привет, мир!"
+    $.equal-to "Привет, мир!"
+
+[] > text-replaced-russian-2
+  assert-that > @
+    replaced.
+      text
+        "Hello, мир!"
+      "Hello"
+      "Привет"
+    $.equal-to "Привет, мир!"
+
 [] > get-int
   assert-that > @
     as-int.
