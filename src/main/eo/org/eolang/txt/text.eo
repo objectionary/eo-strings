@@ -73,7 +73,7 @@
   # Returns
   [] > as-int
     at. > @
-      QQ.txt.sscanf
+      sscanf
         "%d"
         s
       0
