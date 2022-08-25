@@ -168,3 +168,10 @@
         "Привет, 世界"
       8
     $.equal-to "世"
+
+[] > get-int
+  assert-that > @
+    as-int.
+      text
+        "123"
+    $.equal-to 123
