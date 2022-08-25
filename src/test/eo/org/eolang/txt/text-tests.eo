@@ -175,3 +175,10 @@
       text
         "123"
     $.equal-to 123
+
+[] > get-negative-int
+  assert-that > @
+    as-int.
+      text
+        "-456"
+    $.equal-to -456
