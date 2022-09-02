@@ -125,8 +125,7 @@ SOFTWARE.
             </goals>
             <configuration>
               <keepBinaries>
-                <glob>EOorg/EOeolang/EOio/**</glob>
-                <glob>EOorg/EOeolang/EOfs/**</glob>
+                <glob>EOorg/EOeolang/EOtxt/**</glob>
               </keepBinaries>
               <failOnWarning>true</failOnWarning>
             </configuration>
