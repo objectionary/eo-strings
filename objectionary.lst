@@ -1,0 +1,8 @@
+objectionary/objects/org/eolang/txt/text.eo
+objectionary/objects/org/eolang/txt/sscanf.eo
+objectionary/objects/org/eolang/txt/regex.eo
+objectionary/objects/org/eolang/txt/sprintf.eo
+objectionary/tests/org/eolang/txt/sprintf-tests.eo
+objectionary/tests/org/eolang/txt/sscanf-tests.eo
+objectionary/tests/org/eolang/txt/regex-tests.eo
+objectionary/tests/org/eolang/txt/text-tests.eo
