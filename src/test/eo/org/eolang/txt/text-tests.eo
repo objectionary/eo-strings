@@ -218,3 +218,17 @@
       text
         "-456"
     $.equal-to -456
+
+[] > get-float
+  assert-that > @
+    as-float.
+      text
+        "123.456"
+    $.equal-to 123.456
+
+[] > get-negative-float
+  assert-that > @
+    as-float.
+      text
+        "-0.01"
+    $.equal-to -0.01

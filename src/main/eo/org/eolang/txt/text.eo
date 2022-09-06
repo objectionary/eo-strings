@@ -83,3 +83,10 @@
         s
       0
 
+  # Returns the text as float
+  [] > as-float
+    at. > @
+      sscanf
+        "%f"
+        s
+      0
