@@ -267,3 +267,10 @@
           "A"
         "a"
     $.equal-to TRUE
+
+[] > check-is-alpha
+  assert-that > @
+    is-alphabetic.
+      text
+        "qWeRtY"
+    $.equal-to TRUE
