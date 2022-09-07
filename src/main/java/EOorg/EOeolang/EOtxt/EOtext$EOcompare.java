@@ -68,7 +68,7 @@ public class EOtext$EOcompare extends PhDefault {
                         .take(String.class);
                     final Phi text = rho.attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
-                    return new Data.ToPhi(content.compareTo(other));
+                    return new Data.ToPhi((long) content.compareTo(other));
                 }
             )
         );
