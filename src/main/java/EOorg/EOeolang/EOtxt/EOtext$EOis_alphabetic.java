@@ -50,9 +50,6 @@ public class EOtext$EOis_alphabetic extends PhDefault {
      * Ctor.
      *
      * @param sigma Sigma
-     * @todo #18:30min Current implementation using Java.
-     *  We should implement checking that string is alphabetic
-     *  only via EOLANG code. We can do it by using reduce method
      */
     public EOtext$EOis_alphabetic(final Phi sigma) {
         super(sigma);
