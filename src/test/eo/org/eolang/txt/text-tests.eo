@@ -239,3 +239,11 @@
       text
         "-0.01"
     $.equal-to -0.01
+
+[] > compare-similar-strings
+  assert-that > @
+    compare.
+      text
+        "aBcD"
+      "aBcD"
+    $.equal-to 0
