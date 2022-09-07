@@ -46,5 +46,13 @@
 
 [] > prints-bytes-string
   assert-that > @
-    sprintf "%c" (56.as-bytes.slice 7 1)
-    $.equal-to "8"
+    sprintf "%c" (100.as-bytes)
+    $.equal-to "d"
+
+[] > prints-bytes-and-complex-string
+  assert-that > @
+    sprintf "%c %s %c abc"
+      (100.as-bytes)
+      "e f"
+      (56.as-bytes)
+    $.equal-to "d e f 8 abc"
