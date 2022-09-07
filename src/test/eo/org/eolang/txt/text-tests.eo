@@ -247,3 +247,23 @@
         "aBcD"
       "aBcD"
     $.equal-to 0
+
+[] > compare-strings
+  assert-that > @
+    lt.
+      0
+      compare.
+        text
+          "abcd"
+        "aBcD"
+    $.equal-to TRUE
+
+[] > compare-strings-2
+  assert-that > @
+    gt.
+      0
+      compare.
+        text
+          "A"
+        "a"
+    $.equal-to TRUE
