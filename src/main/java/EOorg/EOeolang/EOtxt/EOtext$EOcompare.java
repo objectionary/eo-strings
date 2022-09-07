@@ -53,7 +53,7 @@ public class EOtext$EOcompare extends PhDefault {
      *
      * @param sigma Sigma
      * @todo #18:30min Current implementation using Java.
-     *  We should implement it only via EOLANG code. We can do
+     *  We should implement comparison only via EOLANG code. We can do
      *  it by using reduce method
      */
     public EOtext$EOcompare(final Phi sigma) {
