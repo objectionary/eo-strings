@@ -83,3 +83,16 @@
         s
       0
 
+  # Returns the text as float
+  [] > as-float
+    at. > @
+      sscanf
+        "%f"
+        s
+      0
+
+  # Compares two strings in lexicographic order.
+  # Returns 0 if two strings are equal,
+  # a negative number if the first string comes before the argument,
+  # a positive number if the first string comes after the argument
+  [other] > compare /int
