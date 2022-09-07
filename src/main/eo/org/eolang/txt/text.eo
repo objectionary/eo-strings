@@ -98,7 +98,7 @@
   [other] > compare /int
 
   # Check that all signs in string are letters
-  # @todo #18:30min Current implementation using Java.
+  # @todo #19:30min Current implementation using Java.
   #  We should implement checking that string is alphabetic
   #  only via EOLANG code. We can do it by using reduce method.
   [] > is-alphabetic /bool
