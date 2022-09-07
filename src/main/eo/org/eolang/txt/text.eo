@@ -96,3 +96,9 @@
   # a negative number if the first string comes before the argument,
   # a positive number if the first string comes after the argument
   [other] > compare /int
+
+  # Check that all signs in string are letters
+  # @todo #19:30min Current implementation using Java.
+  #  We should implement checking that string is alphabetic
+  #  only via EOLANG code. We can do it by using reduce method.
+  [] > is-alphabetic /bool
