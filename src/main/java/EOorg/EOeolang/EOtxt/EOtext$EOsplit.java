@@ -43,7 +43,7 @@ import org.eolang.XmirObject;
  * SPLIT.
  *
  * @checkstyle TypeNameCheck (5 lines)
- * @since 0.0
+ * @since 0.0.3
  */
 @XmirObject(oname = "text.split")
 public class EOtext$EOsplit extends PhDefault {
