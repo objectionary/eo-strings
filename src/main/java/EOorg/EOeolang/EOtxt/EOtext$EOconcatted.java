@@ -41,7 +41,7 @@ import org.eolang.XmirObject;
 /**
  * TEXT.CONCATTED.
  *
- * @since 0.0
+ * @since 0.0.3
  * @checkstyle TypeNameCheck (5 lines)
  */
 @XmirObject(oname = "text.concatted")
