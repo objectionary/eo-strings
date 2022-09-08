@@ -30,7 +30,14 @@
  */
 package EOorg.EOeolang.EOtxt;
 
-import org.eolang.*;
+import org.eolang.AtComposite;
+import org.eolang.AtFree;
+import org.eolang.Data;
+import org.eolang.Dataized;
+import org.eolang.Param;
+import org.eolang.PhDefault;
+import org.eolang.Phi;
+import org.eolang.XmirObject;
 
 /**
  * SPLIT.
@@ -58,10 +65,10 @@ public class EOtext$EOsplit extends PhDefault {
                         .take(String.class);
                     final Phi text = rho.attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
-                    final String[] splitStrings = content.split(delimiter);
-                    final Phi[] result = new Phi[splitStrings.length];
-                    for (int i = 0; i < result.length; ++i) {
-                        result[i] = new Data.ToPhi(splitStrings[i]);
+                    final String[] strings = content.split(delimiter);
+                    final Phi[] result = new Phi[strings.length];
+                    for (int idx = 0; idx < result.length; ++idx) {
+                        result[idx] = new Data.ToPhi(strings[idx]);
                     }
                     return new Data.ToPhi(result);
                 }
