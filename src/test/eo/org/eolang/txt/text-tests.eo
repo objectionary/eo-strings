@@ -312,3 +312,11 @@
         ""
       ""
     $.equal-to ""
+
+[] > strings-concatenation-4
+  assert-that > @
+    concatted.
+      text
+        "漢a"
+      "漢字漢"
+    $.equal-to "漢a漢字漢"
