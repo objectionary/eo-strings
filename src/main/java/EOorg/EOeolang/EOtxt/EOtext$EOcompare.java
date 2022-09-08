@@ -26,6 +26,7 @@
  * EO org.eolang.txt package.
  *
  * @checkstyle PackageNameCheck (4 lines)
+ * @since 0.0
  */
 package EOorg.EOeolang.EOtxt;
 
@@ -42,7 +43,7 @@ import org.eolang.XmirObject;
  * COMPARE.
  *
  * @checkstyle TypeNameCheck (5 lines)
- * @since 0.0.3
+ * @since 0.0
  */
 @XmirObject(oname = "text.compare")
 public class EOtext$EOcompare extends PhDefault {
