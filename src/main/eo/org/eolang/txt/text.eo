@@ -104,7 +104,10 @@
   [] > is-alphabetic /bool
 
   # Returns concatenaion of two strings
-  # @todo #44:30min Current implementation using Java.
-  #  We should implement concatenation of two strings
-  #  only via EOLANG code. We can do it by using reduce method.
-  [other] > concatted /string
+  [other] > concatted
+    as-string. > @
+      concat.
+        as-bytes.
+          s
+        as-bytes.
+          other
