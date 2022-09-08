@@ -291,7 +291,7 @@
 
 [] > strings-concatenation
   assert-that > @
-    concatted.
+    chained.
       text
         "123"
       "45 "
@@ -299,7 +299,7 @@
 
 [] > strings-concatenation-2
   assert-that > @
-    concatted.
+    chained.
       text
         ""
       "45 "
@@ -307,7 +307,7 @@
 
 [] > strings-concatenation-3
   assert-that > @
-    concatted.
+    chained.
       text
         ""
       ""
@@ -315,7 +315,7 @@
 
 [] > strings-concatenation-4
   assert-that > @
-    concatted.
+    chained.
       text
         "漢a"
       "漢字漢"

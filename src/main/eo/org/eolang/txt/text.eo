@@ -104,7 +104,7 @@
   [] > is-alphabetic /bool
 
   # Returns concatenaion of two strings
-  [other] > concatted
+  [other] > chained
     as-string. > @
       concat.
         as-bytes.
