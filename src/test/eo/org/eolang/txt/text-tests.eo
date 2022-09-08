@@ -308,7 +308,7 @@
       ", "
     $.equal-to
       list
-        * "abc"
+        * "a b c"
 
 [] > split-text-3
   assert-that > @
