@@ -288,3 +288,27 @@
       text
         "1234"
     $.equal-to FALSE
+
+[] > strings-concatenation
+  assert-that > @
+    concatted.
+      text
+        "123"
+      "45 "
+    $.equal-to "12345 "
+
+[] > strings-concatenation-2
+  assert-that > @
+    concatted.
+      text
+        ""
+      "45 "
+    $.equal-to "45 "
+
+[] > strings-concatenation-3
+  assert-that > @
+    concatted.
+      text
+        ""
+      ""
+    $.equal-to ""
