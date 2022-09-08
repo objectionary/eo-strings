@@ -60,12 +60,7 @@
 
   # A string with all encounters of pattern in txt
   # replaced with rpl
-  [txt coded-rpl] > replaced
-
-    # replace numbers of blocks like "$1" to its group.
-    # takes rpl and list of blocks.
-    [old-rpl blocks] > uncoded-rpl
-      coded-rpl > @
+  [txt rpl] > replaced
 
     # Perform partial replace operation for
     # pt - next unhandled index in text
@@ -73,6 +68,34 @@
     # pa - next unhandled index in replaced text
     # m - matched segments array
     [pt acc pa m] > replacei
+
+      # return rpl replaced num of groups by groups
+      [old-rpl groups] > replace-by-groups
+        if.
+          is-empty.
+            groups
+          old-rpl
+          replace-by-groups
+            replaced.
+              ^.old-rpl
+              joined.
+                "$"
+                *
+                  QQ.txt.sprintf
+                    "%d"
+                    minus.
+                      groups.length
+                      1
+              at.
+                groups
+                minus.
+                  groups.length
+                  1
+            without.
+              groups
+              minus.
+                groups.length
+                1
 
       [] > nextpt
         plus. > @!
@@ -97,9 +120,12 @@
               minus.
                 mitem.at 0
                 pt
-            uncoded-rpl
-              coded-rpl
-              m.at 0
+            replace-by-groups
+              rpl
+              at.
+                match.at 0
+                2
+
       [] > nextacc
         joined. > @!
           (text "")

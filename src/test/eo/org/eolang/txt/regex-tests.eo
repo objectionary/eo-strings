@@ -50,6 +50,15 @@
     $.is
       $.equal-to FALSE
 
+[] > matches-dollar
+  assert-that > @
+    matches.
+      compile.
+        regex "/($[0-9]*)/"
+      "$12"
+    $.is
+      $.equal-to TRUE
+
 [] > match-returns-correct-position
   assert-that > @
     at.
