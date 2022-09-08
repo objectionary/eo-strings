@@ -28,6 +28,10 @@
 +rt jvm org.eolang:eo-strings:0.0.0
 +version 0.0.0
 
+# @todo #22:30min Current version use incorrect names for methods.
+#  We should rename all methods names in text object via documentation.
+#  If you want to know more details read it
+#  https://github.com/objectionary/on-the-origin-of-objects/issues/15
 [s] > text
 
   s > @
