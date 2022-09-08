@@ -15,10 +15,60 @@
 
 [EO](https://www.eolang.org) objects for manipulations with strings.
 
-This is how you do it:
+This is how it works:
+
+### Text
+The object `QQ.txt.text` is a decorator of `QQ.string`.
+
+The attribute `is-empty` is TRUE if the length of the
+array is zero.
+
+The attribute `trim` is a new string trimmed from both sides.
+
+The attribute `joined` is a string that was obtained by concatenating
+the strings from the array with the current string as a delimiter.
+
+The attribute `contains` is TRUE if current string contains
+`substr` as a substring.
+
+The attribute `ends-with` is TRUE if current string 
+ends with `substr`.
+
+The attribute `starts-with` is TRUE if current string
+starts with `substr`.
+
+The attribute `index-of` is an index of `substr` in
+current string as a substring.
+
+The attribute `lower-case` is a new string in lower case.
+
+The attribute `upper-case` is a new string in upper case.
+
+The attribute `at` is a one sign from string by index.
+
+The attribute `replaced` a new string where all substrings
+`target` was changed to `replacement`.
+
+The attribute `as-int` is an int object derived from the string.
+
+The attribute `as-float` is a float object derived from the string.
+
+The attribute `compare` is an int value -
+result of comparing in lexicographic order.
+Returns 0 if two strings are equal,
+a negative number if the first string comes before the argument,
+a positive number if the first string comes after the argument.
+
 
 ```
-tbd...
+[] > text-test
+  QQ.hamcrest.assert-that > @
+    trim.
+      text
+        lower-case.
+          text
+            " AbC "
+    $.equal-to "abc"
 ```
 
 ## How to Contribute
@@ -33,4 +83,5 @@ $ mvn clean install -Pqulice
 ```
 
 You will need Maven 3.3+ and Java 8+.
+
 
