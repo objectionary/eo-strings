@@ -23,7 +23,7 @@
 +alias org.eolang.hamcrest.assert-that
 +alias org.eolang.txt.text
 +architect yegor256@gmail.com
-+home https://github.com/objectionary/eo
++home https://github.com/objectionary/eo-strings
 +junit
 +package org.eolang.txt
 +version 0.0.0
@@ -168,3 +168,123 @@
         "Привет, 世界"
       8
     $.equal-to "世"
+
+[] > text-replaced
+  assert-that > @
+    replaced.
+      text
+        "abacaba"
+      "aba"
+      "c"
+    $.equal-to "ccc"
+
+[] > text-replaced-2
+  assert-that > @
+    replaced.
+      text
+        "abacaba"
+      "w"
+      "c"
+    $.equal-to "abacaba"
+
+[] > text-replaced-russian
+  assert-that > @
+    replaced.
+      text
+        "Привет, мир!"
+      "Привет, мир!"
+      "Привет, мир!"
+    $.equal-to "Привет, мир!"
+
+[] > text-replaced-russian-2
+  assert-that > @
+    replaced.
+      text
+        "Hello, мир!"
+      "Hello"
+      "Привет"
+    $.equal-to "Привет, мир!"
+
+[] > get-int
+  assert-that > @
+    as-int.
+      text
+        "123"
+    $.equal-to 123
+
+[] > get-negative-int
+  assert-that > @
+    as-int.
+      text
+        "-456"
+    $.equal-to -456
+
+[] > get-float
+  assert-that > @
+    as-float.
+      text
+        "123.456"
+    $.equal-to 123.456
+
+[] > get-float-2
+  assert-that > @
+    as-float.
+      text
+        "0.0"
+    $.equal-to 0.0
+
+[] > get-negative-float
+  assert-that > @
+    as-float.
+      text
+        "-0.01"
+    $.equal-to -0.01
+
+[] > compare-similar-strings
+  assert-that > @
+    compare.
+      text
+        "aBcD"
+      "aBcD"
+    $.equal-to 0
+
+[] > compare-strings
+  assert-that > @
+    lt.
+      0
+      compare.
+        text
+          "abcd"
+        "aBcD"
+    $.equal-to TRUE
+
+[] > compare-strings-2
+  assert-that > @
+    gt.
+      0
+      compare.
+        text
+          "A"
+        "a"
+    $.equal-to TRUE
+
+[] > check-is-alpha
+  assert-that > @
+    is-alphabetic.
+      text
+        "qWeRtY"
+    $.equal-to TRUE
+
+[] > check-is-alpha-2
+  assert-that > @
+    is-alphabetic.
+      text
+        "ab3d"
+    $.equal-to FALSE
+
+[] > check-is-alpha-3
+  assert-that > @
+    is-alphabetic.
+      text
+        "1234"
+    $.equal-to FALSE

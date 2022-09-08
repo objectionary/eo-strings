@@ -21,10 +21,11 @@
 # SOFTWARE.
 
 +alias org.eolang.collections.list
++alias org.eolang.txt.sscanf
 +architect yegor256@gmail.com
-+home https://github.com/objectionary/eo
++home https://github.com/objectionary/eo-strings
 +package org.eolang.txt
-+rt jvm org.eolang:eo-runtime:0.0.0
++rt jvm org.eolang:eo-strings:0.0.0
 +version 0.0.0
 
 [s] > text
@@ -69,3 +70,35 @@
 
   [i] > at
     ^.s.slice i 1 > @
+
+  # Returns string where all substrings
+  # target changed to replacement
+  [target replacement] > replaced /string
+
+  # Returns the text as integer
+  [] > as-int
+    at. > @
+      sscanf
+        "%d"
+        s
+      0
+
+  # Returns the text as float
+  [] > as-float
+    at. > @
+      sscanf
+        "%f"
+        s
+      0
+
+  # Compares two strings in lexicographic order.
+  # Returns 0 if two strings are equal,
+  # a negative number if the first string comes before the argument,
+  # a positive number if the first string comes after the argument
+  [other] > compare /int
+
+  # Check that all signs in string are letters
+  # @todo #19:30min Current implementation using Java.
+  #  We should implement checking that string is alphabetic
+  #  only via EOLANG code. We can do it by using reduce method.
+  [] > is-alphabetic /bool
