@@ -97,12 +97,11 @@
   # a positive number if the first string comes after the argument
   [other] > compare /int
 
-  # Returns an array of strings, using current string
-  # as a delimiter
+  # Returns an array of strings, separated by a given string
   # @todo #22:30min Current implementation using Java.
   #  We should implement splitting string to array of strings
   #  only via EOLANG code. We can do it by using reduce method.
-  [] > split /array
+  [delimiter] > split /array
 
   # Check that all signs in string are letters
   # @todo #19:30min Current implementation using Java.
