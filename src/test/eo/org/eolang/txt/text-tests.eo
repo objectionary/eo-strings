@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
++alias org.eolang.collections.list
 +alias org.eolang.hamcrest.assert-that
 +alias org.eolang.txt.text
 +architect yegor256@gmail.com
@@ -288,6 +289,36 @@
       text
         "1234"
     $.equal-to FALSE
+
+[] > split-text
+  assert-that > @
+    split.
+      text
+        "a b c"
+      " "
+    $.equal-to
+      list
+        * "a" "b" "c"
+
+[] > split-text-2
+  assert-that > @
+    split.
+      text
+        "a b c"
+      ", "
+    $.equal-to
+      list
+        * "a b c"
+
+[] > split-text-3
+  assert-that > @
+    split.
+      text
+        "a, b, c."
+      ", "
+    $.equal-to
+      list
+        * "a" "b" "c."
 
 [] > strings-concatenation
   assert-that > @
