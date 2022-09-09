@@ -112,3 +112,12 @@
   #  We should implement checking that string is alphabetic
   #  only via EOLANG code. We can do it by using reduce method.
   [] > is-alphabetic /bool
+
+  # Returns concatenaion of two strings
+  [other] > chained
+    as-string. > @
+      concat.
+        as-bytes.
+          s
+        as-bytes.
+          other

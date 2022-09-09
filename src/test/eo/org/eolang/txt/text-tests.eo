@@ -319,3 +319,35 @@
     $.equal-to
       list
         * "a" "b" "c."
+
+[] > strings-concatenation
+  assert-that > @
+    chained.
+      text
+        "123"
+      "45 "
+    $.equal-to "12345 "
+
+[] > strings-concatenation-2
+  assert-that > @
+    chained.
+      text
+        ""
+      "45 "
+    $.equal-to "45 "
+
+[] > strings-concatenation-3
+  assert-that > @
+    chained.
+      text
+        ""
+      ""
+    $.equal-to ""
+
+[] > strings-concatenation-4
+  assert-that > @
+    chained.
+      text
+        "漢a"
+      "漢字漢"
+    $.equal-to "漢a漢字漢"
