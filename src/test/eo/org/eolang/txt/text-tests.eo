@@ -153,6 +153,26 @@
     ((text "some text here").index-of "  here")
     $.equal-to -1
 
+[] > text-last-index-of
+  assert-that > @
+    ((text "some text here").index-of "me te")
+    $.equal-to 2
+
+[] > text-last-index-of-2
+  assert-that > @
+    ((text "some text here").index-of " here")
+    $.equal-to 9
+
+[] > text-last-index-of-3
+  assert-that > @
+    ((text "some text here").index-of "  here")
+    $.equal-to -1
+
+[] > text-last-index-of-4
+  assert-that > @
+    ((text "abc abcd").index-of "abc")
+    $.equal-to 4
+
 [] > at-returns-one-character
   assert-that > @
     length.
