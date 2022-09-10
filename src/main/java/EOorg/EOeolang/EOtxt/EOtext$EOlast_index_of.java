@@ -25,7 +25,6 @@
 /**
  * EO org.eolang.txt package.
  *
- * @since 0.0
  * @checkstyle PackageNameCheck (4 lines)
  */
 package EOorg.EOeolang.EOtxt;
@@ -43,7 +42,7 @@ import org.eolang.XmirObject;
  * LAST_INDEX_OF.
  *
  * @checkstyle TypeNameCheck (5 lines)
- * @since 0.0
+ * @since 0.0.3
  */
 @XmirObject(oname = "text.last-index-of")
 public class EOtext$EOlast_index_of extends PhDefault {
