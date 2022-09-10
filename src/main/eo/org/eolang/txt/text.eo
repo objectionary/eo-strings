@@ -68,6 +68,9 @@
 
   # Returns last index of substr in string,
   # if no element was found, it returns -1
+  # @todo #43:30min Current implementation using Java.
+  #  We should implement finding of last position of strings
+  #  only via EOLANG code. We can do it by using reduce method.
   [substr] > last-index-of /int
 
   # Returns string in lower case
