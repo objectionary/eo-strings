@@ -69,33 +69,35 @@
     # m - matched segments array
     [pt acc pa m] > replacei
 
-      # return rpl replaced num of groups by groups
       [old-rpl groups] > replace-by-groups
-        if.
-          is-empty.
-            groups
-          old-rpl
+        if. > @
+          groups.is-empty
+          text old-rpl
           replace-by-groups
-            replaced.
-              ^.old-rpl
-              joined.
-                "$"
-                *
-                  QQ.txt.sprintf
-                    "%d"
+            text
+              replaced.
+                text
+                  old-rpl
+                text
+                  chained.
+                    text "$"
+                    QQ.txt.sprintf
+                      "%d"
+                      minus.
+                        groups.length
+                        1
+                text
+                  at.
+                    groups
                     minus.
                       groups.length
                       1
-              at.
+            list
+              without.
                 groups
                 minus.
                   groups.length
                   1
-            without.
-              groups
-              minus.
-                groups.length
-                1
 
       [] > nextpt
         plus. > @!
@@ -122,9 +124,8 @@
                 pt
             replace-by-groups
               rpl
-              at.
-                match.at 0
-                2
+              list
+                mitem.at 2
 
       [] > nextacc
         joined. > @!
