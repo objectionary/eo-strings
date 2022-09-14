@@ -65,14 +65,14 @@
   # Returns index of substr in string,
   # if no element was found, it returns -1
   # @todo #43:30min Current implementation using Java.
-  #  We should implement finding of first position of strings
+  #  We should implement finding of first position of substrings
   #  only via EOLANG code. We can do it by using reduce method.
   [substr] > index-of /int
 
   # Returns last index of substr in string,
   # if no element was found, it returns -1
   # @todo #43:30min Current implementation using Java.
-  #  We should implement finding of last position of strings
+  #  We should implement finding of last position of substrings
   #  only via EOLANG code. We can do it by using reduce method.
   [substr] > last-index-of /int
 
