@@ -28,6 +28,10 @@
 +rt jvm org.eolang:eo-strings:0.0.0
 +version 0.0.0
 
+# @todo #22:30min Current version use incorrect names for methods.
+#  We should rename all methods names in text object via documentation.
+#  If you want to know more details read it
+#  https://github.com/objectionary/on-the-origin-of-objects/issues/15
 [s] > text
 
   s > @
@@ -97,8 +101,23 @@
   # a positive number if the first string comes after the argument
   [other] > compare /int
 
+  # Returns an array of strings, separated by a given string
+  # @todo #22:30min Current implementation using Java.
+  #  We should implement splitting string to array of strings
+  #  only via EOLANG code. We can do it by using reduce method.
+  [delimiter] > split /array
+
   # Check that all signs in string are letters
   # @todo #19:30min Current implementation using Java.
   #  We should implement checking that string is alphabetic
   #  only via EOLANG code. We can do it by using reduce method.
   [] > is-alphabetic /bool
+
+  # Returns concatenaion of two strings
+  [other] > chained
+    as-string. > @
+      concat.
+        as-bytes.
+          s
+        as-bytes.
+          other

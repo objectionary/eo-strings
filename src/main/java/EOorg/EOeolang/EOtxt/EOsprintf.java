@@ -104,7 +104,8 @@ public class EOsprintf extends PhDefault {
         if (occurrence != -1) {
             final String flag = format.substring(occurrence, occurrence + 2);
             if (CHAR_FLAG.equalsIgnoreCase(flag)) {
-                result = (char) ((byte[]) arg)[0];
+                final byte[] arr = (byte[]) arg;
+                result = (char) arr[arr.length - 1];
             }
         }
         return result;
