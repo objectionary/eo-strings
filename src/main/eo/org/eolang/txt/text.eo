@@ -97,9 +97,7 @@
 
   # Returns text where all substrings
   # target changed to replacement
-  [target replacement] > replaced
-    [] > replace /string
-    text replace > @
+  [target replacement] > replaced /text
 
   # Returns the text as integer
   [] > as-int

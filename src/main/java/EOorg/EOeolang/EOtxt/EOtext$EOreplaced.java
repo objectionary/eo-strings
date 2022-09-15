@@ -36,17 +36,18 @@ import org.eolang.Data;
 import org.eolang.Dataized;
 import org.eolang.Param;
 import org.eolang.PhDefault;
+import org.eolang.PhWith;
 import org.eolang.Phi;
 import org.eolang.XmirObject;
 
 /**
- * REPLACE.
+ * REPLACED.
  *
  * @checkstyle TypeNameCheck (5 lines)
  * @since 0.0
  */
-@XmirObject(oname = "text.replaced.replace")
-public class EOtext$EOreplaced$EOreplace extends PhDefault {
+@XmirObject(oname = "text.replaced")
+public class EOtext$EOreplaced extends PhDefault {
 
     /**
      * Ctor.
@@ -56,7 +57,7 @@ public class EOtext$EOreplaced$EOreplace extends PhDefault {
      *  We should implement it only via EOLANG code. We can do
      *  it by using reduce method
      */
-    public EOtext$EOreplaced$EOreplace(final Phi sigma) {
+    public EOtext$EOreplaced(final Phi sigma) {
         super(sigma);
         this.add("target", new AtFree());
         this.add("replacement", new AtFree());
@@ -65,14 +66,17 @@ public class EOtext$EOreplaced$EOreplace extends PhDefault {
             new AtComposite(
                 this,
                 rho -> {
-                    final String target = new Dataized(rho.attr("ρ").get().attr("target").get())
+                    final String target = new Dataized(rho.attr("target").get())
                         .take(String.class);
-                    final String replacement = new Dataized(
-                        rho.attr("ρ").get().attr("replacement").get()
-                    ).take(String.class);
-                    final Phi text = rho.attr("ρ").get().attr("ρ").get();
+                    final String replacement = new Dataized(rho.attr("replacement").get())
+                        .take(String.class);
+                    final Phi text = rho.attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
-                    return new Data.ToPhi(content.replaceAll(target, replacement));
+                    return new PhWith(
+                        new EOtext(rho),
+                        "s",
+                        new Data.ToPhi(content.replaceAll(target, replacement))
+                    );
                 }
             )
         );
