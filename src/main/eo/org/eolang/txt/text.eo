@@ -117,9 +117,10 @@
 
   # Returns concatenaion of two strings
   [other] > chained
-    as-string. > @
-      concat.
-        as-bytes.
-          s
-        as-bytes.
-          other
+    text > @
+      as-string.
+        concat.
+          as-bytes.
+            s
+          as-bytes.
+            other

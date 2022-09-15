@@ -362,3 +362,13 @@
         "漢"
       0
     $.equal-to "漢"
+
+[] > chained-returns-text
+  assert-that > @
+    at.
+      chained.
+        text
+          "ab"
+        "漢"
+      2
+    $.equal-to "漢"
