@@ -372,3 +372,24 @@
         "漢"
       2
     $.equal-to "漢"
+
+[] > slice-returns-text
+  assert-that > @
+    at.
+      slice.
+        text
+          "漢b"
+        0
+        2
+      0
+    $.equal-to "漢"
+
+[] > at-returns-text
+  assert-that > @
+    at.
+      at.
+        text
+          "漢b"
+        0
+      0
+    $.equal-to "漢"
