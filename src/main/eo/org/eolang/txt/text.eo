@@ -74,10 +74,7 @@
   [substr] > index-of /int
 
   # Returns text in lower case
-  [] > lower-case
-    text > @
-      lc
-    [] > lc /string
+  [] > lower-case /text
 
   # Returns last index of substr in string,
   # if no element was found, it returns -1
