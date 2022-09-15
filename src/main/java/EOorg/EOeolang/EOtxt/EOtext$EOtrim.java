@@ -34,6 +34,7 @@ import org.eolang.AtComposite;
 import org.eolang.Data;
 import org.eolang.Param;
 import org.eolang.PhDefault;
+import org.eolang.PhWith;
 import org.eolang.Phi;
 import org.eolang.XmirObject;
 
@@ -43,23 +44,27 @@ import org.eolang.XmirObject;
  * @since 0.0
  * @checkstyle TypeNameCheck (5 lines)
  */
-@XmirObject(oname = "text.trim.tr")
-public class EOtext$EOtrim$EOtr extends PhDefault {
+@XmirObject(oname = "text.trim")
+public class EOtext$EOtrim extends PhDefault {
 
     /**
      * Ctor.
      * @param sigma Sigma
      */
-    public EOtext$EOtrim$EOtr(final Phi sigma) {
+    public EOtext$EOtrim(final Phi sigma) {
         super(sigma);
         this.add(
             "φ",
             new AtComposite(
                 this,
                 rho -> {
-                    final Phi text = rho.attr("ρ").get().attr("ρ").get();
+                    final Phi text = rho.attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
-                    return new Data.ToPhi(content.trim());
+                    return new PhWith(
+                        new EOtext(rho),
+                        "s",
+                        new Data.ToPhi(content.trim())
+                    );
                 }
             )
         );

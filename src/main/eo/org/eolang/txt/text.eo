@@ -41,10 +41,7 @@
       ^.s.slice start len
 
   # Trim it from both sides
-  [] > trim
-    text > @
-      tr
-    [] > tr /string
+  [] > trim /text
 
   # Joins an array of strings, using current string
   # as a delimiter
