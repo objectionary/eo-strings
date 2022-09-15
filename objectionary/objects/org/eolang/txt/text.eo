@@ -25,9 +25,13 @@
 +architect yegor256@gmail.com
 +home https://github.com/objectionary/eo-strings
 +package org.eolang.txt
-+rt jvm org.eolang:eo-strings:0.0.3
-+version 0.0.3
++rt jvm org.eolang:eo-strings:0.0.4
++version 0.0.4
 
+# @todo #22:30min Current version use incorrect names for methods.
+#  We should rename all methods names in text object via documentation.
+#  If you want to know more details read it
+#  https://github.com/objectionary/on-the-origin-of-objects/issues/15
 [s] > text
 
   s > @
@@ -60,7 +64,17 @@
 
   # Returns index of substr in string,
   # if no element was found, it returns -1
+  # @todo #43:30min Current implementation using Java.
+  #  We should implement finding of first position of substrings
+  #  only via EOLANG code. We can do it by using reduce method.
   [substr] > index-of /int
+
+  # Returns last index of substr in string,
+  # if no element was found, it returns -1
+  # @todo #43:30min Current implementation using Java.
+  #  We should implement finding of last position of substrings
+  #  only via EOLANG code. We can do it by using reduce method.
+  [substr] > last-index-of /int
 
   # Returns string in lower case
   [] > lower-case /string
@@ -96,3 +110,24 @@
   # a negative number if the first string comes before the argument,
   # a positive number if the first string comes after the argument
   [other] > compare /int
+
+  # Returns an array of strings, separated by a given string
+  # @todo #22:30min Current implementation using Java.
+  #  We should implement splitting string to array of strings
+  #  only via EOLANG code. We can do it by using reduce method.
+  [delimiter] > split /array
+
+  # Check that all signs in string are letters
+  # @todo #19:30min Current implementation using Java.
+  #  We should implement checking that string is alphabetic
+  #  only via EOLANG code. We can do it by using reduce method.
+  [] > is-alphabetic /bool
+
+  # Returns concatenaion of two strings
+  [other] > chained
+    as-string. > @
+      concat.
+        as-bytes.
+          s
+        as-bytes.
+          other
