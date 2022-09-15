@@ -35,6 +35,7 @@ import org.eolang.Data;
 import org.eolang.Param;
 import org.eolang.PhDefault;
 import org.eolang.Phi;
+import org.eolang.PhWith;
 import org.eolang.XmirObject;
 
 /**
@@ -43,24 +44,28 @@ import org.eolang.XmirObject;
  * @checkstyle TypeNameCheck (5 lines)
  * @since 0.0
  */
-@XmirObject(oname = "text.upper-case.uc")
-public class EOtext$EOupper_case$EOuc extends PhDefault {
+@XmirObject(oname = "text.upper-case")
+public class EOtext$EOupper_case extends PhDefault {
 
     /**
      * Ctor.
      *
      * @param sigma Sigma
      */
-    public EOtext$EOupper_case$EOuc(final Phi sigma) {
+    public EOtext$EOupper_case(final Phi sigma) {
         super(sigma);
         this.add(
             "φ",
             new AtComposite(
                 this,
                 rho -> {
-                    final Phi text = rho.attr("ρ").get().attr("ρ").get();
+                    final Phi text = rho.attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
-                    return new Data.ToPhi(content.toUpperCase());
+                    return new PhWith(
+                        new EOtext(rho),
+                        "s",
+                        new Data.ToPhi(content.toUpperCase())
+                    );
                 }
             )
         );

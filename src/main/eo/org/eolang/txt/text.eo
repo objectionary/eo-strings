@@ -90,10 +90,7 @@
   [substr] > last-index-of /int
 
   # Returns text in upper case
-  [] > upper-case
-    text > @
-      uc
-    [] > uc /string
+  [] > upper-case /text
 
   [i] > at
     ^.slice i 1 > @
