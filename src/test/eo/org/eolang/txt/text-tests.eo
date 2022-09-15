@@ -351,3 +351,14 @@
         "漢a"
       "漢字漢"
     $.equal-to "漢a漢字漢"
+
+[] > replace-returns-text
+  assert-that > @
+    at.
+      replaced.
+        text
+          "abacaba"
+        "aba"
+        "漢"
+      0
+    $.equal-to "漢"
