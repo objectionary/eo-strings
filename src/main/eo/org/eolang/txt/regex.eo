@@ -70,34 +70,47 @@
     [pt acc pa m] > replacei
 
       [old-rpl groups] > replace-by-groups
-        if. > @
-          groups.is-empty
-          text old-rpl
-          replace-by-groups
-            text
-              replaced.
+        seq > @
+          QQ.io.stdout
+            QQ.txt.sprintf
+              "old-rpl = %s, "
+              old-rpl
+          if.
+            groups.is-empty
+            seq
+              QQ.io.stdout "EMPTY\n"
+              text old-rpl
+            seq
+              QQ.io.stdout "NOT EMPTY\n"
+              replace-by-groups
                 text
-                  old-rpl
-                text
-                  chained.
-                    text "$"
-                    QQ.txt.sprintf
-                      "%d"
-                      minus.
-                        groups.length
-                        1
-                text
-                  at.
+                  seq
+                    replaced. > bruh
+                      text
+                        old-rpl
+                      text
+                        chained.
+                          text "$"
+                          QQ.txt.sprintf
+                            "%d"
+                            minus.
+                              groups.length
+                              1
+                      text
+                        seq
+                          at. > byy
+                            groups
+                            minus.
+                              groups.length
+                              1
+                          byy
+                    bruh
+                list
+                  without.
                     groups
                     minus.
                       groups.length
                       1
-            list
-              without.
-                groups
-                minus.
-                  groups.length
-                  1
 
       [] > nextpt
         plus. > @!

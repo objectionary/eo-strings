@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
++alias org.eolang.io.stdout
 +alias org.eolang.collections.list
 +alias org.eolang.hamcrest.assert-that
 +alias org.eolang.txt.regex
@@ -221,3 +222,19 @@
       "abxxxxxcd"
       ""
     $.equal-to "abcd"
+
+[] > group-ref
+  stdout > @
+    replaced.
+      compile.
+        QQ.txt.regex "/(([A-Za-z])[0-9])/"
+      "a1a A2B B3B"
+      "BOBA"
+
+[] > replace-groups
+  stdout > @
+    regex.replaced.replacei.replace-by-groups
+      QQ.txt.text "q$0werty\n"
+      list
+        *
+          "Hi!"
