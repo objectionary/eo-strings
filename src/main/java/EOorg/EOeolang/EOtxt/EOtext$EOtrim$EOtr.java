@@ -43,21 +43,21 @@ import org.eolang.XmirObject;
  * @since 0.0
  * @checkstyle TypeNameCheck (5 lines)
  */
-@XmirObject(oname = "text.trim")
-public class EOtext$EOtrim extends PhDefault {
+@XmirObject(oname = "text.trim.tr")
+public class EOtext$EOtrim$EOtr extends PhDefault {
 
     /**
      * Ctor.
      * @param sigma Sigma
      */
-    public EOtext$EOtrim(final Phi sigma) {
+    public EOtext$EOtrim$EOtr(final Phi sigma) {
         super(sigma);
         this.add(
             "φ",
             new AtComposite(
                 this,
                 rho -> {
-                    final Phi text = rho.attr("ρ").get();
+                    final Phi text = rho.attr("ρ").get().attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
                     return new Data.ToPhi(content.trim());
                 }

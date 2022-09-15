@@ -41,7 +41,10 @@
       ^.s.slice start len
 
   # Trim it from both sides
-  [] > trim /string
+  [] > trim
+    text > @
+      tr
+    [] > tr /string
 
   # Joins an array of strings, using current string
   # as a delimiter
@@ -70,13 +73,13 @@
   # if no element was found, it returns -1
   [substr] > index-of /int
 
-  # Returns string in lower case
+  # Returns text in lower case
   [] > lower-case
     text > @
       lc
     [] > lc /string
 
-  # Returns string in upper case
+  # Returns text in upper case
   [] > upper-case
     text > @
       uc
@@ -85,7 +88,7 @@
   [i] > at
     ^.slice i 1 > @
 
-  # Returns string where all substrings
+  # Returns text where all substrings
   # target changed to replacement
   [target replacement] > replaced
     [] > replace /string
