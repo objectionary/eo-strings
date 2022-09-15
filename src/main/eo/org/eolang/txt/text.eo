@@ -74,7 +74,10 @@
   [] > lower-case /string
 
   # Returns string in upper case
-  [] > upper-case /string
+  [] > upper-case
+    text > @
+      uc
+    [] > uc /string
 
   [i] > at
     ^.slice i 1 > @

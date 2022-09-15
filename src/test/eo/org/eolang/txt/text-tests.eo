@@ -393,3 +393,10 @@
         0
       0
     $.equal-to "漢"
+
+[] > upper-case-returns-text
+  assert-that > @
+    at.
+      (text "HeLlO wOrLd!").upper-case
+      1
+    $.equal-to "E"
