@@ -168,6 +168,21 @@
     ((text "abc abcd").last-index-of "abc")
     $.equal-to 4
 
+[] > text-last-index-of-4
+  assert-that > @
+    ((text "Hello, world").last-index-of "Hello, world")
+    $.equal-to 0
+
+[] > empty-text-last-index-of
+  assert-that > @
+    ((text "").last-index-of "abc")
+    $.equal-to -1
+
+[] > unicode-text-last-index-of
+  assert-that > @
+    ((text "Привет, 世界").last-index-of "世")
+    $.equal-to 8
+
 [] > at-returns-one-character
   assert-that > @
     length.
