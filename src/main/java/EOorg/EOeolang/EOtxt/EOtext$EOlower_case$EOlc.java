@@ -43,22 +43,22 @@ import org.eolang.XmirObject;
  * @checkstyle TypeNameCheck (5 lines)
  * @since 0.0
  */
-@XmirObject(oname = "text.lower-case")
-public class EOtext$EOlower_case extends PhDefault {
+@XmirObject(oname = "text.lower-case.lc")
+public class EOtext$EOlower_case$EOlc extends PhDefault {
 
     /**
      * Ctor.
      *
      * @param sigma Sigma
      */
-    public EOtext$EOlower_case(final Phi sigma) {
+    public EOtext$EOlower_case$EOlc(final Phi sigma) {
         super(sigma);
         this.add(
             "φ",
             new AtComposite(
                 this,
                 rho -> {
-                    final Phi text = rho.attr("ρ").get();
+                    final Phi text = rho.attr("ρ").get().attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
                     return new Data.ToPhi(content.toLowerCase());
                 }

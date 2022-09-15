@@ -400,3 +400,10 @@
       (text "HeLlO wOrLd!").upper-case
       1
     $.equal-to "E"
+
+[] > lower-case-returns-text
+  assert-that > @
+    at.
+      (text "HeLlO wOrLd!").lower-case
+      0
+    $.equal-to "h"

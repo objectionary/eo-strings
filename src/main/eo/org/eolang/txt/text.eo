@@ -71,7 +71,10 @@
   [substr] > index-of /int
 
   # Returns string in lower case
-  [] > lower-case /string
+  [] > lower-case
+    text > @
+      lc
+    [] > lc /string
 
   # Returns string in upper case
   [] > upper-case
