@@ -28,10 +28,6 @@
 +rt jvm org.eolang:eo-strings:0.0.0
 +version 0.0.0
 
-# @todo #22:30min Current version use incorrect names for methods.
-#  We should rename all methods names in text object via documentation.
-#  If you want to know more details read it
-#  https://github.com/objectionary/on-the-origin-of-objects/issues/15
 [s] > text
 
   s > @
@@ -41,7 +37,7 @@
       ^.s.slice start len
 
   # Trim it from both sides
-  [] > trim /text
+  [] > trimmed /text
 
   # Joins an array of strings, using current string
   # as a delimiter
@@ -74,7 +70,10 @@
   [substr] > index-of /int
 
   # Returns text in lower case
-  [] > lower-case /text
+  # @todo #57:30min Current implementation using Java.
+  #  We should implement casting string to lower case
+  #  only via EOLANG code. We can do it by using reduce method.
+  [] > low-cased /text
 
   # Returns last index of substr in string,
   # if no element was found, it returns -1
@@ -84,7 +83,10 @@
   [substr] > last-index-of /int
 
   # Returns text in upper case
-  [] > upper-case /text
+  # @todo #57:30min Current implementation using Java.
+  #  We should implement casting string to upper case
+  #  only via EOLANG code. We can do it by using reduce method.
+  [] > up-cased /text
 
   [i] > at
     ^.slice i 1 > @

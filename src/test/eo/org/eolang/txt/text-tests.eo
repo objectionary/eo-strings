@@ -32,7 +32,7 @@
 [] > trims-string
   assert-that > @
     text "Hello, dude  "
-    .trim
+    .trimmed
     $.equal-to "Hello, dude"
 
 [] > joins-array
@@ -75,22 +75,22 @@
 
 [] > text-lower-case
   assert-that > @
-    (text "HeLlO wOrLd!").lower-case
+    (text "HeLlO wOrLd!").low-cased
     $.equal-to "hello world!"
 
 [] > text-lower-case-2
   assert-that > @
-    (text "hello 1234").lower-case
+    (text "hello 1234").low-cased
     $.equal-to "hello 1234"
 
 [] > text-upper-case
   assert-that > @
-    (text "HeLlO wOrLd!").upper-case
+    (text "HeLlO wOrLd!").up-cased
     $.equal-to "HELLO WORLD!"
 
 [] > text-upper-case-2
   assert-that > @
-    (text "hello 123").upper-case
+    (text "hello 123").up-cased
     $.equal-to "HELLO 123"
 
 [] > text-contains
@@ -427,21 +427,21 @@
 [] > upper-case-returns-text
   assert-that > @
     at.
-      (text "HeLlO wOrLd!").upper-case
+      (text "HeLlO wOrLd!").up-cased
       1
     $.equal-to "E"
 
 [] > lower-case-returns-text
   assert-that > @
     at.
-      (text "HeLlO wOrLd!").lower-case
+      (text "HeLlO wOrLd!").low-cased
       0
     $.equal-to "h"
 
 [] > trims-returns-text
   assert-that > @
     at.
-      trim.
+      trimmed.
         text " 漢Hello, dude  "
       0
     $.equal-to "漢"
