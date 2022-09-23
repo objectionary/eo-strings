@@ -45,14 +45,14 @@ import org.eolang.XmirObject;
  * @since 0.0
  */
 @XmirObject(oname = "text.upper-case")
-public class EOtext$EOupper_case extends PhDefault {
+public class EOtext$EOup_cased extends PhDefault {
 
     /**
      * Ctor.
      *
      * @param sigma Sigma
      */
-    public EOtext$EOupper_case(final Phi sigma) {
+    public EOtext$EOup_cased(final Phi sigma) {
         super(sigma);
         this.add(
             "φ",

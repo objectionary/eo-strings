@@ -39,20 +39,19 @@ import org.eolang.Phi;
 import org.eolang.XmirObject;
 
 /**
- * LOWER_CASE.
+ * TRIM.
  *
- * @checkstyle TypeNameCheck (5 lines)
  * @since 0.0
+ * @checkstyle TypeNameCheck (5 lines)
  */
-@XmirObject(oname = "text.lower-case")
-public class EOtext$EOlower_case extends PhDefault {
+@XmirObject(oname = "text.trim")
+public class EOtext$EOtrimmed extends PhDefault {
 
     /**
      * Ctor.
-     *
      * @param sigma Sigma
      */
-    public EOtext$EOlower_case(final Phi sigma) {
+    public EOtext$EOtrimmed(final Phi sigma) {
         super(sigma);
         this.add(
             "φ",
@@ -64,7 +63,7 @@ public class EOtext$EOlower_case extends PhDefault {
                     return new PhWith(
                         new EOtext(rho),
                         "s",
-                        new Data.ToPhi(content.toLowerCase())
+                        new Data.ToPhi(content.trim())
                     );
                 }
             )

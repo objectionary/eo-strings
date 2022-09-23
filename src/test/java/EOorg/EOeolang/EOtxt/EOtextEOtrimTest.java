@@ -38,7 +38,7 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test case for {@link EOtext$EOtrim}.
+ * Test case for {@link EOtext$EOtrimmed}.
  *
  * @since 0.0
  */
@@ -49,7 +49,7 @@ public final class EOtextEOtrimTest {
         final String str = "Hello, world!  ";
         final Phi text = new EOtext(Phi.Φ);
         text.attr("s").put(new Data.ToPhi(str));
-        final Phi phi = new EOtext$EOtrim(text);
+        final Phi phi = new EOtext$EOtrimmed(text);
         MatcherAssert.assertThat(
             new Dataized(phi).take(String.class),
             Matchers.equalTo("Hello, world!")
