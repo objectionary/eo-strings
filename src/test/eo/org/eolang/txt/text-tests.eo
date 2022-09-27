@@ -445,3 +445,17 @@
         text " 漢Hello, dude  "
       0
     $.equal-to "漢"
+
+[] > temp-test
+  QQ.io.stdout > @
+    QQ.txt.sprintf
+      "char : %d\n"
+      as-int.
+        bytes-1-to-8
+          as-bytes.
+            "a"
+
+  [b] > bytes-1-to-8
+    concat. > @
+      00-00-00-00-00-00-00
+      b
