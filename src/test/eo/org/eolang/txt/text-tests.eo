@@ -159,11 +159,35 @@
       index-of.
         text
       *
+        00- 01- 02-
+      *
+        01- 02-
+      1
+    $.equal-to TRUE
+
+[] > text-check-if-starts-from-index-2
+  assert-that > @
+    check-if-starts-from-index.
+      index-of.
+        text
+      *
         00-
       *
         00-
       0
     $.equal-to TRUE
+
+[] > text-check-if-starts-from-index-3
+  assert-that > @
+    check-if-starts-from-index.
+      index-of.
+        text
+      *
+        00- 01- 02-
+      *
+        02- 00-
+      2
+    $.equal-to FALSE
 
 [] > text-last-index-of
   assert-that > @
