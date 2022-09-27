@@ -159,7 +159,7 @@
       index-of.
         text
       "abc"
-      "ba"
+      "bc"
       1
     $.equal-to TRUE
 
@@ -172,6 +172,16 @@
       "a"
       0
     $.equal-to TRUE
+
+[] > text-check-if-starts-from-index-3
+  assert-that > @
+    check-if-starts-from-index.
+      index-of.
+        text
+      "abc"
+      "bcd"
+      1
+    $.equal-to FALSE
 
 [] > text-last-index-of
   assert-that > @

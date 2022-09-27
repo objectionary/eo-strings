@@ -88,26 +88,13 @@
             index
             lsub
           lstr
-        seq
-          QQ.io.stdout
-            "Here 1\n"
-          FALSE
-        seq
-          QQ.io.stdout
-            QQ.txt.sprintf
-              "Or here %s %s\n"
-              slice.
-                str
-                index
-                lsub
-              lsub
-              substr
-          eq.
-            substr
-            slice.
-              str
-              index
-              lsub
+        FALSE
+        eq.
+          substr
+          slice.
+            str
+            index
+            lsub
 
   # Returns text in lower case
   [] > lower-case /text
