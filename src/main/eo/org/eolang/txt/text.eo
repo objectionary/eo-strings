@@ -122,10 +122,8 @@
   #  only via EOLANG code. We can do it by using reduce method.
   [delimiter] > split /array
 
-  # Check that all signs in string are letters
-  # @todo #19:30min Current implementation using Java.
-  #  We should implement checking that string is alphabetic
-  #  only via EOLANG code. We can do it by using reduce method.
+  # Check that all signs in string are letters.
+  # Works only for english letters
   [] > is-alphabetic
     reduced. > @
       list
