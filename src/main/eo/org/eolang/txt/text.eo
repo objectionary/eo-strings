@@ -70,13 +70,30 @@
   # Returns index of substr in string,
   # if no element was found, it returns -1
   [substr] > index-of
-    -1 > @
-    bytes-as-array > str-ba!
-      as-bytes.
-        s
-    bytes-as-array > substr-ba!
-      as-bytes.
-        substr
+    bytes-as-array > bytes-view!
+      slice.
+        as-bytes.
+          s
+    reducedi. > @
+      list
+        bytes-view
+      -1
+      [a i x]
+        seq > res!
+          check-if-starts-from-index
+            s
+            substr
+            i
+        if. > @
+          eq.
+            a
+            -1
+          if.
+            res
+            i
+            a
+          a
+
     # Method accepts a string and a substring as an array of bytes
     # and checks if the string contains a substring in the passed position
     [str substr index] > check-if-starts-from-index

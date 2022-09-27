@@ -140,18 +140,18 @@
 
 [] > text-index-of
   assert-that > @
-    ((text "some text here").index-of "me te")
-    $.equal-to 2
+    ((text "ab").index-of "ab")
+    $.equal-to 0
 
 [] > text-index-of-2
   assert-that > @
-    ((text "some text here").index-of " here")
-    $.equal-to 9
+    ((text "ab").index-of "abc")
+    $.equal-to -1
 
 [] > text-index-of-3
   assert-that > @
-    ((text "some text here").index-of "  here")
-    $.equal-to -1
+    ((text "ab").index-of "b")
+    $.equal-to 1
 
 [] > text-check-if-starts-from-index
   assert-that > @
