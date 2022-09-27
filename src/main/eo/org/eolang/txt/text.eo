@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
++alias org.eolang.collections.bytes-as-array
 +alias org.eolang.collections.list
 +alias org.eolang.txt.sscanf
 +architect yegor256@gmail.com
@@ -70,6 +71,38 @@
   # if no element was found, it returns -1
   [substr] > index-of
     -1 > @
+    bytes-as-array > str-ba!
+      as-bytes.
+        s
+    bytes-as-array > substr-ba!
+      as-bytes.
+        substr
+    # Method accepts a string and a substring as an array of bytes
+    # and checks if the string contains a substring in the passed position
+    [str-ba substr-ba index] > check-if-starts-from-index
+      str-ba.length > lstr!
+      substr-ba.length > lsub!
+      if. > @
+        qt.
+          plus.
+            index
+            lsub
+          lstr
+        FALSE
+        reducedi.
+          list
+            substr-ba
+          TRUE
+          [a i x]
+            and. > @
+              a
+              eq.
+                x
+                at.
+                  str-ba
+                  plus.
+                    index
+                    i
 
   # Returns text in lower case
   [] > lower-case /text

@@ -153,6 +153,18 @@
     ((text "some text here").index-of "  here")
     $.equal-to -1
 
+[] > text-check-if-starts-from-index
+  assert-that > @
+    check-if-starts-from-index.
+      index-of.
+        text
+      *
+        00-
+      *
+        00-
+      0
+    $.equal-to TRUE
+
 [] > text-last-index-of
   assert-that > @
     ((text "some text here").last-index-of " here")
