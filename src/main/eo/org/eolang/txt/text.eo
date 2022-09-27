@@ -83,7 +83,7 @@
       str-ba.length > lstr!
       substr-ba.length > lsub!
       if. > @
-        qt.
+        gt.
           plus.
             index
             lsub
