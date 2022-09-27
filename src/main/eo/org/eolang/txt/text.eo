@@ -79,30 +79,35 @@
         substr
     # Method accepts a string and a substring as an array of bytes
     # and checks if the string contains a substring in the passed position
-    [str-ba substr-ba index] > check-if-starts-from-index
-      str-ba.length > lstr!
-      substr-ba.length > lsub!
+    [str substr index] > check-if-starts-from-index
+      str.length > lstr!
+      substr.length > lsub!
       if. > @
         gt.
           plus.
             index
             lsub
           lstr
-        FALSE
-        reducedi.
-          list
-            substr-ba
-          TRUE
-          [a i x]
-            and. > @
-              a
-              eq.
-                x
-                at.
-                  str-ba
-                  plus.
-                    index
-                    i
+        seq
+          QQ.io.stdout
+            "Here 1\n"
+          FALSE
+        seq
+          QQ.io.stdout
+            QQ.txt.sprintf
+              "Or here %s %s\n"
+              slice.
+                str
+                index
+                lsub
+              lsub
+              substr
+          eq.
+            substr
+            slice.
+              str
+              index
+              lsub
 
   # Returns text in lower case
   [] > lower-case /text
