@@ -71,19 +71,17 @@
   # if no element was found, it returns -1
   [substr] > index-of
     bytes-as-array > bytes-view!
-      slice.
-        as-bytes.
-          s
+      as-bytes.
+        s
     reducedi. > @
       list
         bytes-view
       -1
       [a i x]
-        seq > res!
-          check-if-starts-from-index
-            s
-            substr
-            i
+        check-if-starts-from-index > res!
+          s
+          substr
+          i
         if. > @
           eq.
             a
