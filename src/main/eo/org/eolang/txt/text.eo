@@ -68,10 +68,50 @@
 
   # Returns index of substr in string,
   # if no element was found, it returns -1
-  # @todo #43:30min Current implementation using Java.
-  #  We should implement finding of first position of substrings
-  #  only via EOLANG code. We can do it by using reduce method.
-  [substr] > index-of /int
+  [substr] > index-of
+    bytes-as-array > bytes-view!
+      as-bytes.
+        s
+    reducedi. > @
+      list
+        bytes-view
+      -1
+      [a i x]
+        check-if-starts-from-index > res!
+          s
+          substr
+          i
+        if. > @
+          eq.
+            a
+            -1
+          if.
+            res
+            i
+            a
+          a
+
+    # Method accepts a string and a substring as an array of bytes
+    # and checks if the string contains a substring in the passed position
+    # @todo #65:30min Current implementation works only with short strings.
+    #  We should have posibility to find substrings in bigger that 2-letter strings.
+    #  Also we should unwrap test 'text-index-of-2' from nop object
+    [str substr index] > check-if-starts-from-index
+      str.length > lstr!
+      substr.length > lsub!
+      if. > @
+        gt.
+          plus.
+            index
+            lsub
+          lstr
+        FALSE
+        eq.
+          substr
+          slice.
+            str
+            index
+            lsub
 
   # Returns text in lower case
   # @todo #57:30min Current implementation using Java.

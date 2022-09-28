@@ -140,18 +140,59 @@
 
 [] > text-index-of
   assert-that > @
-    ((text "some text here").index-of "me te")
-    $.equal-to 2
+    ((text "ab").index-of "ab")
+    $.equal-to 0
 
 [] > text-index-of-2
-  assert-that > @
-    ((text "some text here").index-of " here")
-    $.equal-to 9
+  nop > @
+    assert-that
+      ((text "ab").index-of "abc")
+      $.equal-to -1
 
 [] > text-index-of-3
   assert-that > @
-    ((text "some text here").index-of "  here")
+    ((text "ab").index-of "b")
+    $.equal-to 1
+
+[] > text-index-of-4
+  assert-that > @
+    ((text "a").index-of "a")
+    $.equal-to 0
+
+[] > text-index-of-5
+  assert-that > @
+    ((text "a").index-of "b")
     $.equal-to -1
+
+[] > text-check-if-starts-from-index
+  assert-that > @
+    check-if-starts-from-index.
+      index-of.
+        text
+      "abc"
+      "bc"
+      1
+    $.equal-to TRUE
+
+[] > text-check-if-starts-from-index-2
+  assert-that > @
+    check-if-starts-from-index.
+      index-of.
+        text
+      "a"
+      "a"
+      0
+    $.equal-to TRUE
+
+[] > text-check-if-starts-from-index-3
+  assert-that > @
+    check-if-starts-from-index.
+      index-of.
+        text
+      "abc"
+      "bcd"
+      1
+    $.equal-to FALSE
 
 [] > text-last-index-of
   assert-that > @
