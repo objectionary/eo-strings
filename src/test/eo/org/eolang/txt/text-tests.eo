@@ -159,6 +159,11 @@
     ((text "a").index-of "a")
     $.equal-to 0
 
+[] > text-index-of-5
+  assert-that > @
+    ((text "a").index-of "b")
+    $.equal-to -1
+
 [] > text-check-if-starts-from-index
   assert-that > @
     check-if-starts-from-index.
