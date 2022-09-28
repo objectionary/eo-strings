@@ -60,6 +60,9 @@
   [substr] > ends-with /bool
 
   # Checks that string starts with substr
+  # @todo #43:30min Current implementation using Java.
+  #  We should implement cheching if string starts with substring
+  #  only via EOLANG code. We can do it by using reduce method.
   [substr] > starts-with /bool
 
   # Returns index of substr in string,
