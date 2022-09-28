@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
++alias org.eolang.collections.bytes-as-array
 +alias org.eolang.collections.list
 +alias org.eolang.txt.sscanf
 +architect yegor256@gmail.com
@@ -126,11 +127,40 @@
   #  only via EOLANG code. We can do it by using reduce method.
   [delimiter] > split /array
 
-  # Check that all signs in string are letters
-  # @todo #19:30min Current implementation using Java.
-  #  We should implement checking that string is alphabetic
-  #  only via EOLANG code. We can do it by using reduce method.
-  [] > is-alphabetic /bool
+  # Check that all signs in string are letters.
+  # Works only for english letters
+  [] > is-alphabetic
+    reduced. > @
+      list
+        bytes-as-array
+          as-bytes.
+            low-cased.
+              text
+                s
+      TRUE
+      [a x]
+        as-int. > value!
+          bytes-1-to-8
+            as-bytes.
+              x
+        and. > @
+          a
+          int-is-alpha
+            value
+
+    [b] > int-is-alpha
+      and. > @
+        gte.
+          b
+          97
+        lte.
+          b
+          122
+
+    [b] > bytes-1-to-8
+      concat. > @
+        00-00-00-00-00-00-00
+        b
 
   # Returns concatenaion of two strings
   [other] > chained
