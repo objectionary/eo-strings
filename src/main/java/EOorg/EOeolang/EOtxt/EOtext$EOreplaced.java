@@ -36,6 +36,7 @@ import org.eolang.Data;
 import org.eolang.Dataized;
 import org.eolang.Param;
 import org.eolang.PhDefault;
+import org.eolang.PhWith;
 import org.eolang.Phi;
 import org.eolang.XmirObject;
 
@@ -71,7 +72,11 @@ public class EOtext$EOreplaced extends PhDefault {
                         .take(String.class);
                     final Phi text = rho.attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
-                    return new Data.ToPhi(content.replaceAll(target, replacement));
+                    return new PhWith(
+                        new EOtext(rho),
+                        "s",
+                        new Data.ToPhi(content.replaceAll(target, replacement))
+                    );
                 }
             )
         );

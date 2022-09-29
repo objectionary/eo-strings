@@ -25,8 +25,8 @@
 /**
  * EO org.eolang.txt package.
  *
- * @checkstyle PackageNameCheck (4 lines)
  * @since 0.0
+ * @checkstyle PackageNameCheck (4 lines)
  */
 package EOorg.EOeolang.EOtxt;
 
@@ -34,24 +34,25 @@ import org.eolang.AtComposite;
 import org.eolang.Data;
 import org.eolang.Param;
 import org.eolang.PhDefault;
+import org.eolang.PhWith;
 import org.eolang.Phi;
 import org.eolang.XmirObject;
 
 /**
- * COMPARE.
+ * UPPER_CASE.
  *
  * @checkstyle TypeNameCheck (5 lines)
  * @since 0.0
  */
-@XmirObject(oname = "text.compare")
-public class EOtext$EOis_alphabetic extends PhDefault {
+@XmirObject(oname = "text.upper-case")
+public class EOtext$EOup_cased extends PhDefault {
 
     /**
      * Ctor.
      *
      * @param sigma Sigma
      */
-    public EOtext$EOis_alphabetic(final Phi sigma) {
+    public EOtext$EOup_cased(final Phi sigma) {
         super(sigma);
         this.add(
             "φ",
@@ -60,7 +61,11 @@ public class EOtext$EOis_alphabetic extends PhDefault {
                 rho -> {
                     final Phi text = rho.attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
-                    return new Data.ToPhi(content != null && content.matches("^[a-zA-Z]*$"));
+                    return new PhWith(
+                        new EOtext(rho),
+                        "s",
+                        new Data.ToPhi(content.toUpperCase())
+                    );
                 }
             )
         );

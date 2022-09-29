@@ -34,24 +34,24 @@ import org.eolang.AtComposite;
 import org.eolang.Data;
 import org.eolang.Param;
 import org.eolang.PhDefault;
+import org.eolang.PhWith;
 import org.eolang.Phi;
 import org.eolang.XmirObject;
 
 /**
- * UPPER_CASE.
+ * TRIM.
  *
- * @checkstyle TypeNameCheck (5 lines)
  * @since 0.0
+ * @checkstyle TypeNameCheck (5 lines)
  */
-@XmirObject(oname = "text.upper-case")
-public class EOtext$EOupper_case extends PhDefault {
+@XmirObject(oname = "text.trim")
+public class EOtext$EOtrimmed extends PhDefault {
 
     /**
      * Ctor.
-     *
      * @param sigma Sigma
      */
-    public EOtext$EOupper_case(final Phi sigma) {
+    public EOtext$EOtrimmed(final Phi sigma) {
         super(sigma);
         this.add(
             "φ",
@@ -60,7 +60,11 @@ public class EOtext$EOupper_case extends PhDefault {
                 rho -> {
                     final Phi text = rho.attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
-                    return new Data.ToPhi(content.toUpperCase());
+                    return new PhWith(
+                        new EOtext(rho),
+                        "s",
+                        new Data.ToPhi(content.trim())
+                    );
                 }
             )
         );

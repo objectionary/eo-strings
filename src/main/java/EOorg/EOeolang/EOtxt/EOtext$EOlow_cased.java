@@ -34,23 +34,25 @@ import org.eolang.AtComposite;
 import org.eolang.Data;
 import org.eolang.Param;
 import org.eolang.PhDefault;
+import org.eolang.PhWith;
 import org.eolang.Phi;
 import org.eolang.XmirObject;
 
 /**
- * TRIM.
+ * LOWER_CASE.
  *
- * @since 0.0
  * @checkstyle TypeNameCheck (5 lines)
+ * @since 0.0
  */
-@XmirObject(oname = "text.trim")
-public class EOtext$EOtrim extends PhDefault {
+@XmirObject(oname = "text.lower-case")
+public class EOtext$EOlow_cased extends PhDefault {
 
     /**
      * Ctor.
+     *
      * @param sigma Sigma
      */
-    public EOtext$EOtrim(final Phi sigma) {
+    public EOtext$EOlow_cased(final Phi sigma) {
         super(sigma);
         this.add(
             "φ",
@@ -59,7 +61,11 @@ public class EOtext$EOtrim extends PhDefault {
                 rho -> {
                     final Phi text = rho.attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
-                    return new Data.ToPhi(content.trim());
+                    return new PhWith(
+                        new EOtext(rho),
+                        "s",
+                        new Data.ToPhi(content.toLowerCase())
+                    );
                 }
             )
         );

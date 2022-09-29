@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
++alias org.eolang.collections.bytes-as-array
 +alias org.eolang.collections.list
 +alias org.eolang.txt.sscanf
 +architect yegor256@gmail.com
@@ -28,16 +29,16 @@
 +rt jvm org.eolang:eo-strings:0.0.0
 +version 0.0.0
 
-# @todo #22:30min Current version use incorrect names for methods.
-#  We should rename all methods names in text object via documentation.
-#  If you want to know more details read it
-#  https://github.com/objectionary/on-the-origin-of-objects/issues/15
 [s] > text
 
   s > @
 
+  [start len] > slice
+    text > @
+      ^.s.slice start len
+
   # Trim it from both sides
-  [] > trim /string
+  [] > trimmed /text
 
   # Joins an array of strings, using current string
   # as a delimiter
@@ -60,24 +61,83 @@
   [substr] > ends-with /bool
 
   # Checks that string starts with substr
+  # @todo #43:30min Current implementation using Java.
+  #  We should implement cheching if string starts with substring
+  #  only via EOLANG code. We can do it by using reduce method.
   [substr] > starts-with /bool
 
   # Returns index of substr in string,
   # if no element was found, it returns -1
-  [substr] > index-of /int
+  [substr] > index-of
+    bytes-as-array > bytes-view!
+      as-bytes.
+        s
+    reducedi. > @
+      list
+        bytes-view
+      -1
+      [a i x]
+        check-if-starts-from-index > res!
+          s
+          substr
+          i
+        if. > @
+          eq.
+            a
+            -1
+          if.
+            res
+            i
+            a
+          a
 
-  # Returns string in lower case
-  [] > lower-case /string
+    # Method accepts a string and a substring as an array of bytes
+    # and checks if the string contains a substring in the passed position
+    # @todo #65:30min Current implementation works only with short strings.
+    #  We should have posibility to find substrings in bigger that 2-letter strings.
+    #  Also we should unwrap test 'text-index-of-2' from nop object
+    [str substr index] > check-if-starts-from-index
+      str.length > lstr!
+      substr.length > lsub!
+      if. > @
+        gt.
+          plus.
+            index
+            lsub
+          lstr
+        FALSE
+        eq.
+          substr
+          slice.
+            str
+            index
+            lsub
 
-  # Returns string in upper case
-  [] > upper-case /string
+  # Returns text in lower case
+  # @todo #57:30min Current implementation using Java.
+  #  We should implement casting string to lower case
+  #  only via EOLANG code. We can do it by using reduce method.
+  [] > low-cased /text
+
+  # Returns last index of substr in string,
+  # if no element was found, it returns -1
+  # @todo #43:30min Current implementation using Java.
+  #  We should implement finding of last position of substrings
+  #  only via EOLANG code. We can do it by using reduce method.
+  [substr] > last-index-of /int
+
+  # Returns text in upper case
+  # @todo #57:30min Current implementation using Java.
+  #  We should implement casting string to upper case
+  #  only via EOLANG code. We can do it by using reduce method.
+  [] > up-cased /text
 
   [i] > at
-    ^.s.slice i 1 > @
+    ^.slice i 1 > @
 
-  # Returns string where all substrings
+  # Returns text where all substrings
   # target changed to replacement
-  [target replacement] > replaced /string
+  [target replacement] > replaced /text
 
   # Returns the text as integer
   [] > as-int
@@ -107,17 +167,47 @@
   #  only via EOLANG code. We can do it by using reduce method.
   [delimiter] > split /array
 
-  # Check that all signs in string are letters
-  # @todo #19:30min Current implementation using Java.
-  #  We should implement checking that string is alphabetic
-  #  only via EOLANG code. We can do it by using reduce method.
-  [] > is-alphabetic /bool
+  # Check that all signs in string are letters.
+  # Works only for english letters
+  [] > is-alphabetic
+    reduced. > @
+      list
+        bytes-as-array
+          as-bytes.
+            low-cased.
+              text
+                s
+      TRUE
+      [a x]
+        as-int. > value!
+          bytes-1-to-8
+            as-bytes.
+              x
+        and. > @
+          a
+          int-is-alpha
+            value
+
+    [b] > int-is-alpha
+      and. > @
+        gte.
+          b
+          97
+        lte.
+          b
+          122
+
+    [b] > bytes-1-to-8
+      concat. > @
+        00-00-00-00-00-00-00
+        b
 
   # Returns concatenaion of two strings
   [other] > chained
-    as-string. > @
-      concat.
-        as-bytes.
-          s
-        as-bytes.
-          other
+    text > @
+      as-string.
+        concat.
+          as-bytes.
+            s
+          as-bytes.
+            other

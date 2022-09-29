@@ -25,7 +25,6 @@
 /**
  * EO org.eolang.txt package.
  *
- * @since 0.0
  * @checkstyle PackageNameCheck (4 lines)
  */
 package EOorg.EOeolang.EOtxt;
@@ -40,20 +39,20 @@ import org.eolang.Phi;
 import org.eolang.XmirObject;
 
 /**
- * INDEX_OF.
+ * LAST_INDEX_OF.
  *
  * @checkstyle TypeNameCheck (5 lines)
- * @since 0.0
+ * @since 0.0.3
  */
-@XmirObject(oname = "text.index-of")
-public class EOtext$EOindex_of extends PhDefault {
+@XmirObject(oname = "text.last-index-of")
+public class EOtext$EOlast_index_of extends PhDefault {
 
     /**
      * Ctor.
      *
      * @param sigma Sigma
      */
-    public EOtext$EOindex_of(final Phi sigma) {
+    public EOtext$EOlast_index_of(final Phi sigma) {
         super(sigma);
         this.add("substr", new AtFree());
         this.add(
@@ -65,7 +64,7 @@ public class EOtext$EOindex_of extends PhDefault {
                         new Dataized(rho.attr("substr").get()).take(String.class);
                     final Phi text = rho.attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
-                    return new Data.ToPhi((long) content.indexOf(substring));
+                    return new Data.ToPhi((long) content.lastIndexOf(substring));
                 }
             )
         );
