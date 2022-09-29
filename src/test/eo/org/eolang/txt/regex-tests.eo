@@ -24,6 +24,7 @@
 +alias org.eolang.collections.list
 +alias org.eolang.hamcrest.assert-that
 +alias org.eolang.txt.regex
++alias org.eolang.txt.text
 +architect yegor256@gmail.com
 +home https://github.com/objectionary/eo-strings
 +package org.eolang.txt
@@ -231,10 +232,19 @@
       "a1a A2B B3B"
       "BOBA"
 
-[] > replace-groups
+[] > replace-groups-1
   stdout > @
     regex.replaced.replacei.replace-by-groups
-      QQ.txt.text "q$0werty\n"
+      QQ.txt.text "q$0werty"
       list
         *
-          "Hi!"
+          "GROUP0"
+
+[] > replace-groups-2
+  stdout > @
+    QQ.txt.sprintf
+      "\nreplace2 = %s\n"
+      replaced.
+        text "q$0werty"
+        "$0"
+        "GROUP0"

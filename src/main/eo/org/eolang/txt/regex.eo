@@ -73,38 +73,41 @@
         seq > @
           QQ.io.stdout
             QQ.txt.sprintf
-              "old-rpl = %s, "
+              "old-rpl = %s, len = %d\n"
               old-rpl
+              groups.length
           if.
             groups.is-empty
             seq
               QQ.io.stdout "EMPTY\n"
-              text old-rpl
+              old-rpl
             seq
               QQ.io.stdout "NOT EMPTY\n"
               replace-by-groups
-                text
-                  seq
-                    replaced. > bruh
-                      text
-                        old-rpl
-                      text
-                        chained.
-                          text "$"
-                          QQ.txt.sprintf
-                            "%d"
-                            minus.
-                              groups.length
-                              1
-                      text
-                        seq
-                          at. > byy
-                            groups
-                            minus.
-                              groups.length
-                              1
-                          byy
-                    bruh
+                seq
+                  replaced. > text-replaced
+                    old-rpl
+                    chained. > text-chained
+                      text "$"
+                      QQ.txt.sprintf
+                        "%d"
+                        minus.
+                          groups.length
+                          1
+                    seq
+                      at. > byy
+                        groups
+                        minus.
+                          groups.length
+                          1
+                      byy
+                  QQ.io.stdout
+                    QQ.txt.sprintf
+                      "chained = %s, byy = %s, replaced = %s\n"
+                      text-chained
+                      byy
+                      text-replaced
+                  text-replaced
                 list
                   without.
                     groups
