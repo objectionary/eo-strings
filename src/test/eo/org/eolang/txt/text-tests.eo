@@ -123,6 +123,16 @@
     ((text "some text here").starts-with "some  ")
     $.equal-to FALSE
 
+[] > text-starts-with-4
+  assert-that > @
+    ((text "qwe世rty text here").starts-with "qwe世rty te")
+    $.equal-to TRUE
+
+[] > text-starts-with-5
+  assert-that > @
+    ((text "qwe世rty text here").starts-with "")
+    $.equal-to TRUE
+
 [] > text-ends-with
   assert-that > @
     ((text "some text here").ends-with "me te")
