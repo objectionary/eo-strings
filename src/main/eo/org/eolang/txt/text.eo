@@ -60,11 +60,11 @@
   # Checks that string ends with substr
   [substr] > ends-with /bool
 
-  # Checks that string starts with substr
-  # @todo #43:30min Current implementation using Java.
-  #  We should implement cheching if string starts with substring
-  #  only via EOLANG code. We can do it by using reduce method.
-  [substr] > starts-with /bool
+  [substr] > starts-with
+    index-of.check-if-starts-from-index > @
+      s
+      substr
+      0
 
   # Returns index of substr in string,
   # if no element was found, it returns -1
