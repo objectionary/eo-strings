@@ -60,6 +60,7 @@
   # Checks that string ends with substr
   [substr] > ends-with /bool
 
+  # Checks that string starts with substr
   [substr] > starts-with
     index-of.check-if-starts-from-index > @
       s
