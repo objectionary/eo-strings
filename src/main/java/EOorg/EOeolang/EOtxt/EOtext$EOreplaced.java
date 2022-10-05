@@ -54,8 +54,8 @@ public class EOtext$EOreplaced extends PhDefault {
      *
      * @param sigma Sigma
      * @todo #21:30min Current implementation using Java.
-     * We should implement it only via EOLANG code. We can do
-     * it by using reduce method
+     *  We should implement it only via EOLANG code. We can do
+     *  it by using reduce method
      */
     public EOtext$EOreplaced(final Phi sigma) {
         super(sigma);
