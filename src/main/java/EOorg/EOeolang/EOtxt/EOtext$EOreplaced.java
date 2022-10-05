@@ -72,8 +72,6 @@ public class EOtext$EOreplaced extends PhDefault {
                         .take(String.class);
                     final Phi text = rho.attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
-                    System.out.println(content + " " + target + " " + replacement + " -> " + content.replaceAll(target, replacement));
-                    System.out.println("codes: " + ((int) content.charAt(0)) + " " + ((int) target.charAt(0)));
                     return new PhWith(
                         new EOtext(rho),
                         "s",
