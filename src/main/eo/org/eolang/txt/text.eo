@@ -160,7 +160,8 @@
   # Returns 0 if two strings are equal,
   # a negative number if the first string comes before the argument,
   # a positive number if the first string comes after the argument
-  [other] > compare /int
+  [other] > compare
+    0 > @
 
   # Returns an array of strings, separated by a given string
   # @todo #22:30min Current implementation using Java.
