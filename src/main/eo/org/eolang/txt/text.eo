@@ -161,7 +161,57 @@
   # a negative number if the first string comes before the argument,
   # a positive number if the first string comes after the argument
   [other] > compare
-    0 > @
+    bytes-as-array > b1!
+      as-bytes.
+        s
+    bytes-as-array > b2!
+      as-bytes.
+        other
+    if. > @
+      eq.
+        length.
+          s
+        length.
+          other
+      reducedi.
+        list
+          b1
+        0
+        [a i x]
+          if. > res!
+            eq.
+              at.
+                b1
+                i
+              at.
+                b2
+                i
+            0
+            if.
+              gt.
+                as-int.
+                  is-alphabetic.bytes-1-to-8
+                    at.
+                      b1
+                      i
+                as-int.
+                  is-alphabetic.bytes-1-to-8
+                    at.
+                      b2
+                      i
+              1
+              -1
+          if. > @
+            eq.
+              a
+              0
+            res
+            a
+      minus.
+        length.
+          s
+        length.
+          other
 
   # Returns an array of strings, separated by a given string
   # @todo #22:30min Current implementation using Java.
