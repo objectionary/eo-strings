@@ -326,8 +326,8 @@
   assert-that > @
     compare.
       text
-        "aBcD"
-      "aBcD"
+        "aB"
+      "aB"
     $.equal-to 0
 
 [] > compare-strings
@@ -336,8 +336,8 @@
       0
       compare.
         text
-          "abcd"
-        "aBcD"
+          "ab"
+        "aB"
     $.equal-to TRUE
 
 [] > compare-strings-2
@@ -348,6 +348,36 @@
         text
           "A"
         "a"
+    $.equal-to TRUE
+
+[] > compare-strings-with-different-length
+  assert-that > @
+    gt.
+      0
+      compare.
+        text
+          "a"
+        "aa"
+    $.equal-to TRUE
+
+[] > compare-strings-with-different-length-2
+  assert-that > @
+    gt.
+      0
+      compare.
+        text
+          "bb"
+        "b"
+    $.equal-to FALSE
+
+[] > compare-strings-with-unicode
+  assert-that > @
+    gt.
+      0
+      compare.
+        text
+          "y"
+        "漢"
     $.equal-to TRUE
 
 [] > check-is-alpha
