@@ -287,6 +287,32 @@
       "Привет"
     $.equal-to "Привет, мир!"
 
+[] > text-replaced-3
+  assert-that > @
+    replaced.
+      text
+        "$A"
+      "$"
+      "G"
+    $.equal-to "GA"
+
+[] > text-replaced-4
+  assert-that > @
+    replaced.
+      text
+        "$AB"
+      "$A"
+      "G"
+    $.equal-to "GB"
+
+[] > text-replaced-5
+  assert-that > @
+    replaced.
+      text "q$0werty"
+      "$0"
+      "GROUP0"
+    $.equal-to "qGROUP0werty"
+
 [] > get-int
   assert-that > @
     as-int.

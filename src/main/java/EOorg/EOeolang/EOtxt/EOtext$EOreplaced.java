@@ -25,8 +25,8 @@
 /**
  * EO org.eolang.txt package.
  *
- * @since 0.0
  * @checkstyle PackageNameCheck (4 lines)
+ * @since 0.0
  */
 package EOorg.EOeolang.EOtxt;
 
@@ -54,8 +54,8 @@ public class EOtext$EOreplaced extends PhDefault {
      *
      * @param sigma Sigma
      * @todo #21:30min Current implementation using Java.
-     *  We should implement it only via EOLANG code. We can do
-     *  it by using reduce method
+     * We should implement it only via EOLANG code. We can do
+     * it by using reduce method
      */
     public EOtext$EOreplaced(final Phi sigma) {
         super(sigma);
@@ -66,12 +66,14 @@ public class EOtext$EOreplaced extends PhDefault {
             new AtComposite(
                 this,
                 rho -> {
-                    final String target = new Dataized(rho.attr("target").get())
-                        .take(String.class);
+                    final String target = (new Dataized(rho.attr("target").get())
+                        .take(String.class)).replaceAll("\\$", "\\\\\\$");
                     final String replacement = new Dataized(rho.attr("replacement").get())
                         .take(String.class);
                     final Phi text = rho.attr("ρ").get();
                     final String content = new Param(text, "s").strong(String.class);
+                    System.out.println(content + " " + target + " " + replacement + " -> " + content.replaceAll(target, replacement));
+                    System.out.println("codes: " + ((int) content.charAt(0)) + " " + ((int) target.charAt(0)));
                     return new PhWith(
                         new EOtext(rho),
                         "s",
