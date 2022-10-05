@@ -66,8 +66,8 @@ public class EOtext$EOreplaced extends PhDefault {
             new AtComposite(
                 this,
                 rho -> {
-                    final String target = (new Dataized(rho.attr("target").get())
-                        .take(String.class)).replaceAll("\\$", "\\\\\\$");
+                    final String target = new Dataized(rho.attr("target").get())
+                        .take(String.class);
                     final String replacement = new Dataized(rho.attr("replacement").get())
                         .take(String.class);
                     final Phi text = rho.attr("ρ").get();

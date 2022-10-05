@@ -136,7 +136,7 @@
   [i] > at
     ^.slice i 1 > @
 
-  # Returns text where all substrings
+  # Returns text where all regexp
   # target changed to replacement
   [target replacement] > replaced /text
 

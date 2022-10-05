@@ -292,7 +292,7 @@
     replaced.
       text
         "$A"
-      "$"
+      "\\$"
       "G"
     $.equal-to "GA"
 
@@ -301,7 +301,7 @@
     replaced.
       text
         "$AB"
-      "$A"
+      "\\$A"
       "G"
     $.equal-to "GB"
 
@@ -309,7 +309,7 @@
   assert-that > @
     replaced.
       text "q$0werty"
-      "$0"
+      "\\$0"
       "GROUP0"
     $.equal-to "qGROUP0werty"
 
