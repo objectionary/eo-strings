@@ -258,6 +258,6 @@
       compile.
         QQ.txt.regex "/(([A-Za-z])[0-9])/"
       "a1a A2B\n"
-      "Г$1世"
+      "$1世"
     $.equal-to
-      "Гa1世a ГA2世B\n"
+      "a1世a A2世B\n"
