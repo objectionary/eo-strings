@@ -251,3 +251,13 @@
       "abxxxcd"
       "$0"
     $.equal-to "abxxxcd"
+
+[] > group-ref-3
+  assert-that > @
+    replaced.
+      compile.
+        QQ.txt.regex "/(([A-Za-z])[0-9])/"
+      "a1a A2B\n"
+      "Г$1世"
+    $.equal-to
+      "Гa1世a ГA2世B\n"
