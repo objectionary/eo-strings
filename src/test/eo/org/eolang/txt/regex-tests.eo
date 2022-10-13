@@ -20,11 +20,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+alias org.eolang.io.stdout
 +alias org.eolang.collections.list
 +alias org.eolang.hamcrest.assert-that
 +alias org.eolang.txt.regex
-+alias org.eolang.txt.text
 +architect yegor256@gmail.com
 +home https://github.com/objectionary/eo-strings
 +package org.eolang.txt
@@ -224,27 +222,32 @@
       ""
     $.equal-to "abcd"
 
-[] > group-ref
-  stdout > @
+[] > replace-groups-1
+  assert-that > @
+    regex.replaced.replacei.replace-by-groups
+      QQ.txt.text "q$0wer$1ty"
+      list
+        *
+          "GR0"
+          "GR1"
+    $.equal-to
+      "qGR0werGR1ty"
+
+[] > group-ref-1
+  assert-that > @
     replaced.
       compile.
         QQ.txt.regex "/(([A-Za-z])[0-9])/"
-      "a1a A2B B3B"
-      "BOBA"
+      "a1a A2B\n"
+      "G$1G"
+    $.equal-to
+      "Ga1Ga GA2GB\n"
 
-[] > replace-groups-1
-  stdout > @
-    regex.replaced.replacei.replace-by-groups
-      QQ.txt.text "q$0werty"
-      list
-        *
-          "GROUP0"
-
-[] > replace-groups-2
-  stdout > @
-    QQ.txt.sprintf
-      "\nreplace2 = %s\n"
-      replaced.
-        text "q$0werty"
-        "$0"
-        "GROUP0"
+[] > group-ref-2
+  assert-that > @
+    replaced.
+      compile.
+        QQ.txt.regex "/([xyz]+)/"
+      "abxxxcd"
+      "$0"
+    $.equal-to "abxxxcd"

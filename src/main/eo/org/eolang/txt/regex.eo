@@ -69,51 +69,33 @@
     # m - matched segments array
     [pt acc pa m] > replacei
 
+      # Replace groups signs ($i) in old-rpl by the group of
+      # the list groups
       [old-rpl groups] > replace-by-groups
-        seq > @
-          QQ.io.stdout
-            QQ.txt.sprintf
-              "old-rpl = %s, len = %d\n"
+        if. > @
+          groups.is-empty
+          old-rpl
+          replace-by-groups
+            replaced.
               old-rpl
-              groups.length
-          if.
-            groups.is-empty
-            seq
-              QQ.io.stdout "EMPTY\n"
-              old-rpl
-            seq
-              QQ.io.stdout "NOT EMPTY\n"
-              replace-by-groups
-                seq
-                  replaced. > text-replaced
-                    old-rpl
-                    chained. > text-chained
-                      text "$"
-                      QQ.txt.sprintf
-                        "%d"
-                        minus.
-                          groups.length
-                          1
-                    seq
-                      at. > byy
-                        groups
-                        minus.
-                          groups.length
-                          1
-                      byy
-                  QQ.io.stdout
-                    QQ.txt.sprintf
-                      "chained = %s, byy = %s, replaced = %s\n"
-                      text-chained
-                      byy
-                      text-replaced
-                  text-replaced
-                list
-                  without.
-                    groups
-                    minus.
-                      groups.length
-                      1
+              chained. > text-chained
+                text "\\$"
+                QQ.txt.sprintf
+                  "%d"
+                  minus.
+                    groups.length
+                    1
+              at.
+                groups
+                minus.
+                  groups.length
+                  1
+            list
+              without.
+                groups
+                minus.
+                  groups.length
+                  1
 
       [] > nextpt
         plus. > @!
@@ -139,7 +121,7 @@
                 mitem.at 0
                 pt
             replace-by-groups
-              rpl
+              text rpl
               list
                 mitem.at 2
 
@@ -149,7 +131,7 @@
           *
             part
             slice.
-              txt
+              text txt
               nextpt
               minus.
                 txt.length
@@ -170,6 +152,6 @@
 
     replacei > @
       0
-      txt
+      text txt
       0
       (match txt)
