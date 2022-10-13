@@ -123,6 +123,16 @@
     ((text "some text here").starts-with "some  ")
     $.equal-to FALSE
 
+[] > text-starts-with-4
+  assert-that > @
+    ((text "qwe世rty text here").starts-with "qwe世rty te")
+    $.equal-to TRUE
+
+[] > text-starts-with-5
+  assert-that > @
+    ((text "qwe世rty text here").starts-with "")
+    $.equal-to TRUE
+
 [] > text-ends-with
   assert-that > @
     ((text "some text here").ends-with "me te")
@@ -277,6 +287,32 @@
       "Привет"
     $.equal-to "Привет, мир!"
 
+[] > text-replaced-3
+  assert-that > @
+    replaced.
+      text
+        "$A"
+      "\\$"
+      "G"
+    $.equal-to "GA"
+
+[] > text-replaced-4
+  assert-that > @
+    replaced.
+      text
+        "$AB"
+      "\\$A"
+      "G"
+    $.equal-to "GB"
+
+[] > text-replaced-5
+  assert-that > @
+    replaced.
+      text "q$0werty"
+      "\\$0"
+      "GROUP0"
+    $.equal-to "qGROUP0werty"
+
 [] > get-int
   assert-that > @
     as-int.
@@ -316,8 +352,8 @@
   assert-that > @
     compare.
       text
-        "aBcD"
-      "aBcD"
+        "aB"
+      "aB"
     $.equal-to 0
 
 [] > compare-strings
@@ -326,8 +362,8 @@
       0
       compare.
         text
-          "abcd"
-        "aBcD"
+          "ab"
+        "aB"
     $.equal-to TRUE
 
 [] > compare-strings-2
@@ -338,6 +374,36 @@
         text
           "A"
         "a"
+    $.equal-to TRUE
+
+[] > compare-strings-with-different-length
+  assert-that > @
+    gt.
+      0
+      compare.
+        text
+          "a"
+        "aa"
+    $.equal-to TRUE
+
+[] > compare-strings-with-different-length-2
+  assert-that > @
+    gt.
+      0
+      compare.
+        text
+          "bb"
+        "b"
+    $.equal-to FALSE
+
+[] > compare-strings-with-unicode
+  assert-that > @
+    gt.
+      0
+      compare.
+        text
+          "y"
+        "漢"
     $.equal-to TRUE
 
 [] > check-is-alpha
