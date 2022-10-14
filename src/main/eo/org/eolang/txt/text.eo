@@ -127,10 +127,6 @@
   #  only via EOLANG code. We can do it by using reduce method.
   [substr] > last-index-of /int
 
-  # Returns text in upper case
-  # @todo #57:30min Current implementation using Java.
-  #  We should implement casting string to upper case
-  #  only via EOLANG code. We can do it by using reduce method.
   [] > up-cased
     text > @
       as-string.
