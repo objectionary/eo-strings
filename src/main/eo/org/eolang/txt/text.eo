@@ -23,6 +23,7 @@
 +alias org.eolang.collections.bytes-as-array
 +alias org.eolang.collections.list
 +alias org.eolang.txt.sscanf
++alias org.eolang.heap
 +architect yegor256@gmail.com
 +home https://github.com/objectionary/eo-strings
 +package org.eolang.txt
@@ -129,16 +130,28 @@
 
   # Returns text in upper case
   [] > up-cased
-    text > @
-      as-string.
-        reduced.
-          list
-            bytes-as-array
-              s.as-bytes
-          --
-          [a x]
-            concat. > @
-              a
+    list > str!
+      bytes-as-array
+        s.as-bytes
+    heap > h!
+      str.length
+    h.pointer 0 1 > p!
+    seq > @
+      reducedi.
+        str
+        0
+        [a i x]
+          seq > @
+            QQ.io.stdout
+              QQ.txt.sprintf
+                "a = %s, i = %d, p = %d\n"
+                a
+                i
+                p
+            write.
+              block.
+                p.add i
+                1
               if.
                 and.
                   lte.
@@ -156,6 +169,15 @@
                   7
                   1
                 x
+            text
+              p.block
+                str.length
+                [b] (b.as-string > @)
+          a.plus 1
+      text
+        p.block
+          str.length
+          [b] (b.as-string > @)
 
     [c] > ascii
       as-int. > @
