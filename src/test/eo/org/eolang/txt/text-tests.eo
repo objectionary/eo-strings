@@ -552,3 +552,16 @@
         text " 漢Hello, dude  "
       0
     $.equal-to "漢"
+
+[] > my-test
+  QQ.io.stdout > @
+    QQ.txt.sprintf
+      "CHAR = %c\n"
+      65.as-bytes
+
+[] > ascii-my-test
+  assert-that > @
+    text.up-cased.ascii
+      "A"
+    $.equal-to
+      65

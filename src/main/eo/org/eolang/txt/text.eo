@@ -131,7 +131,13 @@
   # @todo #57:30min Current implementation using Java.
   #  We should implement casting string to upper case
   #  only via EOLANG code. We can do it by using reduce method.
-  [] > up-cased /text
+  [] > up-cased
+    [c] > ascii
+      as-int. > @
+        concat.
+          00-00-00-00-00-00-00
+          as-bytes.
+            c
 
   [i] > at
     ^.slice i 1 > @
