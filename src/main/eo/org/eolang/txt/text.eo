@@ -134,9 +134,7 @@
         reduced.
           list
             bytes-as-array
-              as-bytes.
-                text
-                  s
+              s.as-bytes
           --
           [a x]
             concat. > @
