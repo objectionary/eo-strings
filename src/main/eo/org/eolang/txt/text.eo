@@ -137,20 +137,15 @@
       str.length
     h.pointer 0 1 > p!
     seq > @
-      reducedi.
+      reduced.
         str
         0
-        [a i x]
+        [iter x]
+          iter > a!
           seq > @
-            QQ.io.stdout
-              QQ.txt.sprintf
-                "a = %s, i = %d, p = %d\n"
-                a
-                i
-                p
             write.
               block.
-                p.add i
+                p.add a
                 1
               if.
                 and.
@@ -169,11 +164,7 @@
                   7
                   1
                 x
-            text
-              p.block
-                str.length
-                [b] (b.as-string > @)
-          a.plus 1
+            a.plus 1
       text
         p.block
           str.length
