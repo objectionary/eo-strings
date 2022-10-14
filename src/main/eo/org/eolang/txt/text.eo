@@ -132,12 +132,47 @@
   #  We should implement casting string to upper case
   #  only via EOLANG code. We can do it by using reduce method.
   [] > up-cased
+    text > @
+      as-string.
+        reduced.
+          list
+            bytes-as-array
+              as-bytes.
+                text
+                  s
+          --
+          [a x]
+            concat. > @
+              a
+              if.
+                and.
+                  lte.
+                    ascii x
+                    ascii "z"
+                  gte.
+                    ascii x
+                    ascii "a"
+                slice.
+                  as-bytes.
+                    minus.
+                      ascii
+                        x
+                      distance
+                  7
+                  1
+                x
+
     [c] > ascii
       as-int. > @
         concat.
           00-00-00-00-00-00-00
           as-bytes.
             c
+    minus. > distance!
+      ascii
+        "a"
+      ascii
+        "A"
 
   [i] > at
     ^.slice i 1 > @
