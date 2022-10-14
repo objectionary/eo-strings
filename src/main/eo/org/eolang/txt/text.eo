@@ -127,6 +127,7 @@
   #  only via EOLANG code. We can do it by using reduce method.
   [substr] > last-index-of /int
 
+  # Returns text in upper case
   [] > up-cased
     text > @
       as-string.
