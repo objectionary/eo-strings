@@ -128,7 +128,28 @@
   # @todo #43:30min Current implementation using Java.
   #  We should implement finding of last position of substrings
   #  only via EOLANG code. We can do it by using reduce method.
-  [substr] > last-index-of /int
+  [substr] > last-index-of
+    bytes-as-array > bytes-view!
+      as-bytes.
+        s
+    reducedi. > @
+      list
+        bytes-view
+      -1
+      [a i x]
+        check-if-starts-from-index > res!
+          s
+          substr
+          i
+        if. > @
+          eq.
+            a
+            -1
+          if.
+            res
+            i
+            a
+          a
 
   # Returns text in upper case
   # @todo #57:30min Current implementation using Java.
