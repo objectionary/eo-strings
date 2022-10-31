@@ -206,8 +206,8 @@
 
 [] > text-last-index-of
   assert-that > @
-    ((text "some text here").last-index-of " here")
-    $.equal-to 9
+    ((text "4 2").last-index-of "2")
+    $.equal-to 2
 
 [] > text-last-index-of-2
   assert-that > @
