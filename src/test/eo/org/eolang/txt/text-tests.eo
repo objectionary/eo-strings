@@ -216,22 +216,22 @@
 
 [] > text-last-index-of
   assert-that > @
-    ((text "some text here").last-index-of " here")
-    $.equal-to 9
+    ((text "4 2").last-index-of "2")
+    $.equal-to 2
 
 [] > text-last-index-of-2
   assert-that > @
-    ((text "some text here").last-index-of "  here")
+    ((text "here").last-index-of " here")
     $.equal-to -1
 
 [] > text-last-index-of-3
   assert-that > @
-    ((text "abc abcd").last-index-of "abc")
-    $.equal-to 4
+    ((text "ab abc").last-index-of "ab")
+    $.equal-to 3
 
 [] > text-last-index-of-4
   assert-that > @
-    ((text "Hello, world").last-index-of "Hello, world")
+    ((text "Hello").last-index-of "Hello")
     $.equal-to 0
 
 [] > empty-text-last-index-of
@@ -241,8 +241,8 @@
 
 [] > unicode-text-last-index-of
   assert-that > @
-    ((text "Привет, 世界").last-index-of "世")
-    $.equal-to 8
+    ((text "a世").last-index-of "世")
+    $.equal-to 1
 
 [] > at-returns-one-character
   assert-that > @

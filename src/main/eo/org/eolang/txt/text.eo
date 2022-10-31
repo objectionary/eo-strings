@@ -57,6 +57,9 @@
   # Checks that string contains substr
   [substr] > contains /bool
 
+  # @todo #66:30min Current implementation using Java.
+  #  We should implement checking if string ends with given substring
+  #  only via EOLANG code. We can do it by using reduce method.
   # Checks that string ends with substr
   [substr] > ends-with /bool
 
@@ -122,10 +125,23 @@
 
   # Returns last index of substr in string,
   # if no element was found, it returns -1
-  # @todo #43:30min Current implementation using Java.
-  #  We should implement finding of last position of substrings
-  #  only via EOLANG code. We can do it by using reduce method.
-  [substr] > last-index-of /int
+  [substr] > last-index-of
+    bytes-as-array > bytes-view!
+      as-bytes.
+        s
+    reducedi. > @
+      list
+        bytes-view
+      -1
+      [a i x]
+        index-of.check-if-starts-from-index > res!
+          s
+          substr
+          i
+        if. > @
+          res
+          i
+          a
 
   # Returns text in upper case
   [] > up-cased
