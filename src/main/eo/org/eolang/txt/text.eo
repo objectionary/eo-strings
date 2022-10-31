@@ -137,18 +137,13 @@
         bytes-view
       -1
       [a i x]
-        check-if-starts-from-index > res!
+        index-of.check-if-starts-from-index > res!
           s
           substr
           i
         if. > @
-          eq.
-            a
-            -1
-          if.
-            res
-            i
-            a
+          res
+          i
           a
 
   # Returns text in upper case
