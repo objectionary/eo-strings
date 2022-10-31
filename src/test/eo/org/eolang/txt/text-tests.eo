@@ -230,9 +230,10 @@
     $.equal-to -1
 
 [] > unicode-text-last-index-of
-  assert-that > @
-    ((text "世界").last-index-of "世")
-    $.equal-to 0
+  nop > @
+    assert-that
+      ((text "世界").last-index-of "世")
+      $.equal-to 0
 
 [] > at-returns-one-character
   assert-that > @
