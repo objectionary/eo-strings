@@ -211,7 +211,7 @@
 
 [] > text-last-index-of-2
   assert-that > @
-    ((text "some text here").last-index-of "  here")
+    ((text "here").last-index-of " here")
     $.equal-to -1
 
 [] > text-last-index-of-3
