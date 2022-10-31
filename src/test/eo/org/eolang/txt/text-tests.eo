@@ -231,8 +231,8 @@
 
 [] > unicode-text-last-index-of
   assert-that > @
-    ((text "Привет, 世界").last-index-of "世")
-    $.equal-to 8
+    ((text "世界").last-index-of "世")
+    $.equal-to 0
 
 [] > at-returns-one-character
   assert-that > @
