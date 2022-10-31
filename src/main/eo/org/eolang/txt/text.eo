@@ -125,9 +125,6 @@
 
   # Returns last index of substr in string,
   # if no element was found, it returns -1
-  # @todo #43:30min Current implementation using Java.
-  #  We should implement finding of last position of substrings
-  #  only via EOLANG code. We can do it by using reduce method.
   [substr] > last-index-of
     bytes-as-array > bytes-view!
       as-bytes.
