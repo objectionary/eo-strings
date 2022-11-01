@@ -105,12 +105,12 @@
 
 [] > text-contains
   assert-that > @
-    ((text "abcd").contains "bc")
+    ((text "abc").contains "bc")
     $.equal-to TRUE
 
 [] > text-contains-2
   assert-that > @
-    ((text "a1 b2").contains "1 b")
+    ((text "ab c").contains "bc")
     $.equal-to FALSE
 
 [] > text-contains-3
@@ -122,6 +122,11 @@
   assert-that > @
     ((text "123").contains "34")
     $.equal-to FALSE
+
+[] > text-contains-unicode
+  assert-that > @
+    ((text "界").contains "世")
+    $.equal-to TRUE
 
 [] > text-starts-with
   assert-that > @
