@@ -54,6 +54,9 @@
           ((acc.concat (x.as-bytes)).concat (s.as-bytes))
     res.as-string > @
 
+  # @todo #91:30min Current implementation using Java.
+  #  We should implement checking if string contains given substring
+  #  only via EOLANG code. We can do it by checkong result of index-of method
   # Checks that string contains substr
   [substr] > contains /bool
 
