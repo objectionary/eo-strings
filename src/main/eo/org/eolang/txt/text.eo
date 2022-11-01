@@ -55,7 +55,13 @@
     res.as-string > @
 
   # Checks that string contains substr
-  [substr] > contains /bool
+  [substr] > contains
+    not. > @
+      eq.
+        -1
+        index-of.
+          ^
+          substr
 
   # Checks that string ends with substr
   [substr] > ends-with
