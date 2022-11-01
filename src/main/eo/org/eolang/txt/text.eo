@@ -60,10 +60,9 @@
       text
         s
       substr
-    not. > @
-      eq.
-        -1
-        idx
+    gt. > @
+      idx
+      -1
 
   # Checks that string ends with substr
   [substr] > ends-with
