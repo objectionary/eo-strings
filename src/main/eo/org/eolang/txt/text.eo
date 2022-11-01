@@ -62,7 +62,12 @@
 
   # Checks that string ends with substr
   [substr] > ends-with
-    FALSE > @
+    index-of.check-if-starts-from-index > @
+      s
+      substr
+      minus.
+        s.length
+        substr.length
 
   # Checks that the text starts with substr
   [substr] > starts-with
