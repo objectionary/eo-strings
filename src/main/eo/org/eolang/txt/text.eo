@@ -60,7 +60,8 @@
       eq.
         -1
         index-of.
-          ^
+          text
+            s
           substr
 
   # Checks that string ends with substr

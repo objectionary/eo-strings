@@ -113,6 +113,11 @@
     ((text "a1 b2").contains "1 b")
     $.equal-to FALSE
 
+[] > text-contains-3
+  assert-that > @
+    ((text "ab").contains "a")
+    $.equal-to TRUE
+
 [] > text-not-contains
   assert-that > @
     ((text "123").contains "34")
