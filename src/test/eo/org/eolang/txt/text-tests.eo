@@ -105,18 +105,18 @@
 
 [] > text-contains
   assert-that > @
-    ((text "some text here").contains "me te")
+    ((text "abcd").contains "bc")
     $.equal-to TRUE
 
 [] > text-contains-2
   assert-that > @
-    ((text "some text here").contains "me text.")
+    ((text "a1 b2").contains "1 b")
     $.equal-to FALSE
 
-[] > text-contains-3
+[] > text-not-contains
   assert-that > @
-    ((text "1234456").contains "1")
-    $.equal-to TRUE
+    ((text "123").contains "34")
+    $.equal-to FALSE
 
 [] > text-starts-with
   assert-that > @
