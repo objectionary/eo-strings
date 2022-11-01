@@ -56,13 +56,14 @@
 
   # Checks that string contains substr
   [substr] > contains
+    index-of. > idx!
+      text
+        s
+      substr
     not. > @
       eq.
         -1
-        index-of.
-          text
-            s
-          substr
+        idx
 
   # Checks that string ends with substr
   [substr] > ends-with
