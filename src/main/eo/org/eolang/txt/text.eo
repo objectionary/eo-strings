@@ -57,9 +57,6 @@
   # Checks that string contains substr
   [substr] > contains /bool
 
-  # @todo #66:30min Current implementation using Java.
-  #  We should implement checking if string ends with given substring
-  #  only via EOLANG code. We can do it by using reduce method.
   # Checks that string ends with substr
   [substr] > ends-with
     FALSE > @
