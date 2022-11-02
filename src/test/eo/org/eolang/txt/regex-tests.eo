@@ -233,15 +233,25 @@
     $.equal-to
       "qGR0werGR1ty"
 
+[] > group-ref-0
+  assert-that > @
+    replaced.
+      compile.
+        QQ.txt.regex "/(([A-Za-z])[0-9])/"
+      "A2B"
+      "G$1G"
+    $.equal-to
+      "GA2GB"
+
 [] > group-ref-1
   assert-that > @
     replaced.
       compile.
         QQ.txt.regex "/(([A-Za-z])[0-9])/"
-      "a1a A2B\n"
+      "a1a"
       "G$1G"
     $.equal-to
-      "Ga1Ga GA2GB\n"
+      "Ga1Ga"
 
 [] > group-ref-2
   assert-that > @
