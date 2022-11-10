@@ -69,18 +69,13 @@
             a
             1
           a
-    seq > @
-      QQ.io.stdout
-        QQ.txt.sprintf
-          "%d\n"
-          left-pos
-      slice.
-        s
+    slice. > @
+      s
+      left-pos
+      minus.
+        length.
+          s
         left-pos
-        minus.
-          length.
-            s
-          left-pos
 
   # Joins an array of strings, using current string
   # as a delimiter
