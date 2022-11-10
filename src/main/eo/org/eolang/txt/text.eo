@@ -48,7 +48,7 @@
       0
       [a x]
         if. > @
-          was-found
+          left-found
           a
           if.
             eq.
@@ -60,7 +60,7 @@
               1
             seq
               write.
-                was-found
+                left-found
                 TRUE
               a
     slice. > @
