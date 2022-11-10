@@ -611,9 +611,10 @@
     $.equal-to "h"
 
 [] > trims-returns-text
-  assert-that > @
-    at.
-      trimmed.
-        text " 漢"
-      0
-    $.equal-to "漢"
+  nop > @
+    assert-that
+      at.
+        trimmed.
+          text " 漢 "
+        0
+      $.equal-to "漢"
