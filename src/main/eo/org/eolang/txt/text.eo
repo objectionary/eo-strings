@@ -38,7 +38,39 @@
       ^.s.slice start len
 
   # Trim it from both sides
-  [] > trimmed /text
+  [] > trimmed
+    times. > left-pos!
+      -1
+      reduced.
+        list
+          bytes-as-array
+            as-bytes.
+              s
+        0
+        [a x]
+          if. > @
+            lt.
+              a
+              0
+            a
+            if.
+              eq.
+                32
+                up-cased.ascii
+                  x
+              plus.
+                a
+                1
+              times.
+                a
+                -1
+    slice. > @
+      s
+      left-pos
+      minus.
+        length.
+          s
+        left-pos
 
   # Joins an array of strings, using current string
   # as a delimiter
