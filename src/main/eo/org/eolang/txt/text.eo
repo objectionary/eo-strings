@@ -39,37 +39,48 @@
 
   # Trim it from both sides
   [] > trimmed
-    memory FALSE > left-found
-    reduced. > left-pos!
+    reducedi. > spaces!
       list
         bytes-as-array
           as-bytes.
             s
+      *
+      [a i x]
+        up-cased.ascii > code!
+          x
+        if. > @
+          eq.
+            code
+            32
+          with.
+            a
+            i
+          a
+    reduced. > left-pos!
+      list
+        spaces
       0
       [a x]
         if. > @
-          left-found
+          eq.
+            a
+            x
+          plus.
+            a
+            1
           a
-          if.
-            eq.
-              32
-              up-cased.ascii
-                x
-            plus.
-              a
-              1
-            seq
-              write.
-                left-found
-                TRUE
-              a
-    slice. > @
-      s
-      left-pos
-      minus.
-        length.
-          s
+    seq > @
+      QQ.io.stdout
+        QQ.txt.sprintf
+          "%d\n"
+          left-pos
+      slice.
+        s
         left-pos
+        minus.
+          length.
+            s
+          left-pos
 
   # Joins an array of strings, using current string
   # as a delimiter
