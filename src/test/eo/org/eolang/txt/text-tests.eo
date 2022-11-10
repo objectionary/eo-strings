@@ -80,13 +80,6 @@
         " "
     $.equal-to ""
 
-[] > text-trimmed-unicode
-  assert-that > @
-    trimmed.
-      text
-        " 漢 "
-    $.equal-to "漢"
-
 [] > joins-array
   assert-that > @
     joined.
