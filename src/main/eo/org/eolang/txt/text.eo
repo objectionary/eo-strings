@@ -39,31 +39,30 @@
 
   # Trim it from both sides
   [] > trimmed
-    times. > left-pos!
-      -1
-      reduced.
-        list
-          bytes-as-array
-            as-bytes.
-              s
-        0
-        [a x]
-          if. > @
-            lt.
+    memory FALSE > left-found
+    reduced. > left-pos!
+      list
+        bytes-as-array
+          as-bytes.
+            s
+      0
+      [a x]
+        if. > @
+          was-found
+          a
+          if.
+            eq.
+              32
+              up-cased.ascii
+                x
+            plus.
               a
-              0
-            a
-            if.
-              eq.
-                32
-                up-cased.ascii
-                  x
-              plus.
-                a
-                1
-              times.
-                a
-                -1
+              1
+            seq
+              write.
+                was-found
+                TRUE
+              a
     slice. > @
       s
       left-pos
