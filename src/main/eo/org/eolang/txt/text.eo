@@ -51,10 +51,11 @@
       [a i x]
         up-cased.ascii > code!
           x
+        32 > space-code!
         if. > @
           eq.
             code
-            32
+            space-code
           with.
             a
             i
