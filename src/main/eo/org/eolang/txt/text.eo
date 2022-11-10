@@ -38,6 +38,9 @@
       ^.s.slice start len
 
   # Trim it from both sides
+  # @todo #97:30min Current implementation trims only left part of spaces in the given string.
+  #  We should increase realization and trim right part of spaces also.
+  #  After than we should unwrap disabled trim tests
   [] > trimmed
     reducedi. > spaces!
       list
