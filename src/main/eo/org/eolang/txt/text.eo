@@ -155,6 +155,8 @@
 
   # Returns text in upper case
   [] > up-cased
+    ascii "z" > ascii-z!
+    ascii "a" > ascii-a!
     text > @
       as-string.
         reduced.
@@ -163,16 +165,17 @@
               s.as-bytes
           --
           [a x]
+            ascii x > ascii-x!
             concat. > @
               a
               if.
                 and.
                   lte.
-                    ascii x
-                    ascii "z"
+                    ascii-x
+                    ascii-z
                   gte.
-                    ascii x
-                    ascii "a"
+                    ascii-x
+                    ascii-a
                 slice.
                   as-bytes.
                     minus.
