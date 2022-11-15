@@ -38,7 +38,48 @@
       ^.s.slice start len
 
   # Trim it from both sides
-  [] > trimmed /text
+  # @todo #97:30min Current implementation trims only left part of spaces in the given string.
+  #  We should increase realization and trim right part of spaces also.
+  #  After than we should unwrap disabled trim tests
+  [] > trimmed
+    reducedi. > spaces!
+      list
+        bytes-as-array
+          as-bytes.
+            s
+      *
+      [a i x]
+        up-cased.ascii > code!
+          x
+        32 > space-code!
+        if. > @
+          eq.
+            code
+            space-code
+          with.
+            a
+            i
+          a
+    reduced. > left-pos!
+      list
+        spaces
+      0
+      [a x]
+        if. > @
+          eq.
+            a
+            x
+          plus.
+            a
+            1
+          a
+    slice. > @
+      s
+      left-pos
+      minus.
+        length.
+          s
+        left-pos
 
   # Joins an array of strings, using current string
   # as a delimiter

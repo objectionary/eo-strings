@@ -29,11 +29,56 @@
 +package org.eolang.txt
 +version 0.0.0
 
-[] > trims-string
+[] > text-trimmed-1
   assert-that > @
-    text "Hello, dude  "
-    .trimmed
-    $.equal-to "Hello, dude"
+    trimmed.
+      text
+        "a b"
+    $.equal-to "a b"
+
+[] > text-trimmed-2
+  nop > @
+    assert-that
+      trimmed.
+        text
+          "a b "
+      $.equal-to "a b"
+
+[] > text-trimmed-3
+  nop > @
+    assert-that
+      trimmed.
+        text
+          " a b "
+      $.equal-to "a b"
+
+[] > text-trimmed-4
+  assert-that > @
+    trimmed.
+      text
+        " a b"
+    $.equal-to "a b"
+
+[] > text-trimmed-5
+  assert-that > @
+    trimmed.
+      text
+        " ab"
+    $.equal-to "ab"
+
+[] > text-trimmed-empty-1
+  assert-that > @
+    trimmed.
+      text
+        ""
+    $.equal-to ""
+
+[] > text-trimmed-empty-2
+  assert-that > @
+    trimmed.
+      text
+        " "
+    $.equal-to ""
 
 [] > joins-array
   assert-that > @
@@ -566,9 +611,10 @@
     $.equal-to "h"
 
 [] > trims-returns-text
-  assert-that > @
-    at.
-      trimmed.
-        text " 漢Hello, dude  "
-      0
-    $.equal-to "漢"
+  nop > @
+    assert-that
+      at.
+        trimmed.
+          text " 漢 "
+        0
+      $.equal-to "漢"
