@@ -150,7 +150,7 @@
     # and checks if the string contains a substring in the passed position
     # @todo #65:30min Current implementation works only with short strings.
     #  We should have posibility to find substrings in bigger that 2-letter strings.
-    #  Also we should unwrap test 'text-index-of-2' from nop object
+    #  Also we should unwrap tests 'text-index-of-2' and 'text-index-of-3' from nop object
     [str substr index] > check-if-starts-from-index
       str.length > lstr!
       substr.length > lsub!

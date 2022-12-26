@@ -225,9 +225,10 @@
       $.equal-to -1
 
 [] > text-index-of-3
-  assert-that > @
-    (text "ab").index-of "b"
-    $.equal-to 1
+  nop > @
+    assert-that
+      (text "ab").index-of "b"
+      $.equal-to 1
 
 [] > text-index-of-4
   assert-that > @
