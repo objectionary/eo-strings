@@ -37,20 +37,18 @@
     $.equal-to "a b"
 
 [] > text-trimmed-2
-  nop > @
-    assert-that
-      trimmed.
-        text
-          "a b "
-      $.equal-to "a b"
+  assert-that > @
+    trimmed.
+      text
+        "a b "
+    $.equal-to "a b"
 
 [] > text-trimmed-3
-  nop > @
-    assert-that
-      trimmed.
-        text
-          " a b "
-      $.equal-to "a b"
+  assert-that > @
+    trimmed.
+      text
+        " a b "
+    $.equal-to "a b"
 
 [] > text-trimmed-4
   assert-that > @
@@ -612,10 +610,9 @@
     $.equal-to "h"
 
 [] > trims-returns-text
-  nop > @
-    assert-that
-      at.
-        trimmed.
-          text " 漢 "
-        0
-      $.equal-to "漢"
+  assert-that > @
+    at.
+      trimmed.
+        text " 漢 "
+      0
+    $.equal-to "漢"
