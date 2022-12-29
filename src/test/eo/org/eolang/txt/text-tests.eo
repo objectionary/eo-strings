@@ -78,6 +78,13 @@
         " "
     $.equal-to ""
 
+[] > text-trimmed-empty-4
+  assert-that > @
+    trimmed.
+      text
+        "  "
+    $.equal-to ""
+
 [] > joins-array
   assert-that > @
     joined.
