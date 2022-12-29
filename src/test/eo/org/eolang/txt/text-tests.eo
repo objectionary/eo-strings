@@ -78,7 +78,7 @@
         " "
     $.equal-to ""
 
-[] > text-trimmed-empty-4
+[] > text-trimmed-empty-3
   assert-that > @
     trimmed.
       text
