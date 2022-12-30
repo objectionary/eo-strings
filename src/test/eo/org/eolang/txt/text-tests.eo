@@ -118,15 +118,25 @@
       * "start" "end"
     $.equal-to "start & end"
 
-[] > text-lower-case
+[] > text-lower-case-1
   assert-that > @
-    (text "HeLlO wOrLd!").low-cased
-    $.equal-to "hello world!"
+    (text "HeLlO !").low-cased
+    $.equal-to "hello !"
 
 [] > text-lower-case-2
   assert-that > @
-    (text "hello 1234").low-cased
-    $.equal-to "hello 1234"
+    (text "HEL 3").low-cased
+    $.equal-to "hel 3"
+
+[] > text-lower-case-3
+  assert-that > @
+    (text "HelL世o").low-cased
+    $.equal-to "hello世o"
+
+[] > no-changes-lower-case
+  assert-that > @
+    (text "chng").low-cased
+    $.equal-to "chng"
 
 [] > text-upper-case-1
   assert-that > @
@@ -607,9 +617,9 @@
 [] > lower-case-returns-text
   assert-that > @
     at.
-      (text "HeLlO wOrLd!").low-cased
-      0
-    $.equal-to "h"
+      (text "hELlO!").low-cased
+      1
+    $.equal-to "e"
 
 [] > trims-returns-text
   nop > @
