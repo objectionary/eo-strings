@@ -172,7 +172,37 @@
   # @todo #57:30min Current implementation using Java.
   #  We should implement casting string to lower case
   #  only via EOLANG code. We can do it by using reduce method.
-  [] > low-cased /text
+  [] > low-cased
+    up-cased.ascii "Z" > ascii-z!
+    up-cased.ascii "A" > ascii-a!
+    text > @
+      as-string.
+        reduced.
+          list
+            bytes-as-array
+              s.as-bytes
+          --
+          [a x]
+            up-cased.ascii x > ascii-x!
+            concat. > @
+              a
+              if.
+                and.
+                  lte.
+                    ascii-x
+                    ascii-z
+                  gte.
+                    ascii-x
+                    ascii-a
+                slice.
+                  as-bytes.
+                    plus.
+                      up-cased.ascii
+                        x
+                      up-cased.distance
+                  7
+                  1
+                x
 
   # Returns last index of substr in string,
   # if no element was found, it returns -1
