@@ -476,7 +476,7 @@
   assert-that > @
     is-alphabetic.
       text
-        "qWeRtY"
+        "eEo"
     $.equal-to TRUE
 
 [] > check-is-alpha-2
@@ -490,7 +490,7 @@
   assert-that > @
     is-alphabetic.
       text
-        "1234"
+        "123"
     $.equal-to FALSE
 
 [] > split-text
