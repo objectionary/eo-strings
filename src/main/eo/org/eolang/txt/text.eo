@@ -38,6 +38,9 @@
       ^.s.slice start len
 
   # Trim it from both sides
+  # @todo #107:30min Current implementation of trimmed method catches stackoverflow
+  #  for tests where both sides of strings are changing or just more than one space
+  #  should be removed. After fixing it unwrap nop from all trimmed tests
   [] > trimmed
     rec-trim > @
       s
