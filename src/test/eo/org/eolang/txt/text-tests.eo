@@ -44,12 +44,11 @@
     $.equal-to "a b"
 
 [] > text-trimmed-3
-  nop > @
-    assert-that
-      trimmed.
-        text
-          " a b "
-      $.equal-to "a b"
+  assert-that > @
+    trimmed.
+      text
+        " a b "
+    $.equal-to "a b"
 
 [] > text-trimmed-4
   assert-that > @
@@ -80,12 +79,11 @@
     $.equal-to ""
 
 [] > text-trimmed-empty-3
-  nop > @
-    assert-that
-      trimmed.
-        text
-          "  "
-      $.equal-to ""
+  assert-that > @
+    trimmed.
+      text
+        "  "
+    $.equal-to ""
 
 [] > joins-array
   assert-that > @
