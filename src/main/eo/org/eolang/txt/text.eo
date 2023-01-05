@@ -169,9 +169,6 @@
             lsub
 
   # Returns text in lower case
-  # @todo #57:30min Current implementation using Java.
-  #  We should implement casting string to lower case
-  #  only via EOLANG code. We can do it by using reduce method.
   [] > low-cased
     up-cased.ascii "Z" > ascii-z!
     up-cased.ascii "A" > ascii-a!
