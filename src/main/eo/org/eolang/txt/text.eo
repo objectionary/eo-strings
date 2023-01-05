@@ -46,22 +46,23 @@
       s
 
     [str] > rec-trim
+      str > const-str!
       eq. > empty
         length.
-          str
+          const-str
         0
       eq. > starts-with-space
         slice.
-          str
+          const-str
           0
           1
         " "
       eq. > ends-with-space
         slice.
-          str
+          const-str
           plus.
             length.
-              str
+              const-str
             -1
           1
         " "
@@ -76,7 +77,7 @@
               1
               plus.
                 length.
-                  str
+                  const-str
                 -1
           if.
             ends-with-space
@@ -85,9 +86,9 @@
                 0
                 plus.
                   length.
-                    str
+                    const-str
                   -1
-            str
+            const-str
 
   # Joins an array of strings, using current string
   # as a delimiter
