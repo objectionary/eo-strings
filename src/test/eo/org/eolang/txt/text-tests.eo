@@ -130,8 +130,8 @@
 
 [] > text-lower-case-3
   assert-that > @
-    (text "HelLo世o").low-cased
-    $.equal-to "hello世o"
+    (text "HeL世o").low-cased
+    $.equal-to "hel世o"
 
 [] > no-changes-lower-case
   assert-that > @
