@@ -87,7 +87,7 @@ SOFTWARE.
     <dependency>
       <groupId>org.eolang</groupId>
       <artifactId>eo-runtime</artifactId>
-      <version>0.28.14</version>
+      <version>0.28.16</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -119,7 +119,7 @@ SOFTWARE.
       <plugin>
         <groupId>org.eolang</groupId>
         <artifactId>eo-maven-plugin</artifactId>
-        <version>0.28.14</version>
+        <version>0.28.16</version>
         <executions>
           <execution>
             <id>compile</id>
@@ -135,8 +135,7 @@ SOFTWARE.
               <keepBinaries>
                 <glob>EOorg/EOeolang/EOtxt/**</glob>
               </keepBinaries>
-              <!-- @todo #108:90min Set failOnWarning to 'true'. It's not a good idea to allow deploy artifacts with warnings. We have to do it only because of failures in other repositories. -->
-              <failOnWarning>false</failOnWarning>
+              <failOnWarning>true</failOnWarning>
             </configuration>
           </execution>
           <execution>
