@@ -398,14 +398,15 @@
 
   # Returns concatenaion of two strings
   [others...] > chained
-    as-string. > @
-      reduced.
-        list
-          others
-        as-bytes.
-          s
-        [a x]
-          concat. > @
-            a
-            as-bytes.
-              x
+    text > @
+      as-string.
+        reduced.
+          list
+            others
+          as-bytes.
+            s
+          [a x]
+            concat. > @
+              a
+              as-bytes.
+                x
