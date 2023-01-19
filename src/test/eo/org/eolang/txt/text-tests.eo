@@ -572,6 +572,13 @@
       "漢字漢"
     $.equal-to "漢a漢字漢"
 
+[] > one-strings-chained
+  assert-that > @
+    chained.
+      text
+        "a"
+    $.equal-to "a"
+
 [] > multiple-strings-chained
   assert-that > @
     chained.
