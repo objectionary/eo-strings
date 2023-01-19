@@ -396,7 +396,7 @@
         00-00-00-00-00-00-00
         b
 
-  # Returns concatenaion of two strings
+  # Returns concatenaion of all strings
   [others...] > chained
     text > @
       as-string.
