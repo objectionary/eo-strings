@@ -30,7 +30,6 @@
 +version 0.0.0
 
 [s] > text
-
   s > @
 
   [start len] > slice
