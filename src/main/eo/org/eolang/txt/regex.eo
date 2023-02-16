@@ -42,7 +42,6 @@
 # /u - Enables Unicode-aware case folding.
 #
 [r] > regex
-
   [] > compile /regex
 
   # Match the text and return the array of matched blocks.
@@ -61,14 +60,12 @@
   # A string with all encounters of pattern in txt
   # replaced with rpl
   [txt rpl] > replaced
-
     # Perform partial replace operation for
     # pt - next unhandled index in text
     # acc - replaced text so far
     # pa - next unhandled index in replaced text
     # m - matched segments array
     [pt acc pa m] > replacei
-
       # Replace groups signs ($i) in old-rpl by the group of
       # the list groups
       [old-rpl groups] > replace-by-groups
