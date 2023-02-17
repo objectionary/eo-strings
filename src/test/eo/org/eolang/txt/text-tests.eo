@@ -510,6 +510,27 @@
         "123"
     $.equal-to FALSE
 
+[] > check-is-ascii
+  assert-that > @
+    is-ascii.
+      text
+        "H311oW"
+    $.equal-to TRUE
+
+[] > check-is-ascii2
+  assert-that > @
+    is-ascii.
+      text
+        "🌵"
+    $.equal-to FALSE
+
+[] > check-is-ascii3
+  assert-that > @
+    is-alphabetic.
+      text
+        "ascИ"
+    $.equal-to FALSE
+
 [] > split-text
   assert-that > @
     split.

@@ -395,7 +395,35 @@
         00-00-00-00-00-00-00
         b
 
-  # Returns concatenaion of all strings
+  # Check that all signs in string are ASCII characters.
+  [] > is-ascii
+    reduced. > @
+      list
+        bytes-as-array
+          as-bytes.
+            text
+              s
+      TRUE
+      [a x]
+        as-int. > value!
+          is-alphabetic.bytes-1-to-8
+            as-bytes.
+              x
+        and. > @
+          a
+          int-is-ascii
+            value
+
+    [b] > int-is-ascii
+      and. > @
+        gte.
+          b
+          0
+        lte.
+          b
+          127
+
+  # Returns concatenation of all strings
   [others...] > chained
     text > @
       as-string.
