@@ -27,7 +27,7 @@
 +home https://github.com/objectionary/eo-strings
 +junit
 +package org.eolang.txt
-+version 0.1.1
++version 0.1.2
 
 [] > text-trimmed-1
   assert-that > @
@@ -540,7 +540,7 @@
       list
         * "a" "b" "c."
 
-[] > strings-concatenation
+[] > strings-chained
   assert-that > @
     chained.
       text
@@ -548,7 +548,7 @@
       "45 "
     $.equal-to "12345 "
 
-[] > strings-concatenation-2
+[] > strings-chained-2
   assert-that > @
     chained.
       text
@@ -556,7 +556,7 @@
       "45 "
     $.equal-to "45 "
 
-[] > strings-concatenation-3
+[] > strings-chained-3
   assert-that > @
     chained.
       text
@@ -564,13 +564,29 @@
       ""
     $.equal-to ""
 
-[] > strings-concatenation-4
+[] > strings-chained-4
   assert-that > @
     chained.
       text
         "漢a"
       "漢字漢"
     $.equal-to "漢a漢字漢"
+
+[] > one-strings-chained
+  assert-that > @
+    chained.
+      text
+        "a"
+    $.equal-to "a"
+
+[] > multiple-strings-chained
+  assert-that > @
+    chained.
+      text
+        "a"
+      "b"
+      "c"
+    $.equal-to "abc"
 
 [] > replace-returns-text
   assert-that > @

@@ -26,11 +26,10 @@
 +architect yegor256@gmail.com
 +home https://github.com/objectionary/eo-strings
 +package org.eolang.txt
-+rt jvm org.eolang:eo-strings:0.1.1
-+version 0.1.1
++rt jvm org.eolang:eo-strings:0.1.2
++version 0.1.2
 
 [s] > text
-
   s > @
 
   [start len] > slice
@@ -99,9 +98,9 @@
       "".as-bytes
       [acc i x]
         if. > @
-          i.eq ((items.length).minus 1)
-          acc.concat (x.as-bytes)
-          (acc.concat (x.as-bytes)).concat s.as-bytes
+          i.eq (items.length.minus 1)
+          acc.concat x.as-bytes
+          (acc.concat x.as-bytes).concat s.as-bytes
     res.as-string > @
 
   # Checks that string contains substr
@@ -396,12 +395,17 @@
         00-00-00-00-00-00-00
         b
 
-  # Returns concatenaion of two strings
-  [other] > chained
+  # Returns concatenaion of all strings
+  [others...] > chained
     text > @
       as-string.
-        concat.
+        reduced.
+          list
+            others
           as-bytes.
             s
-          as-bytes.
-            other
+          [a x]
+            concat. > @
+              a
+              as-bytes.
+                x
