@@ -526,10 +526,10 @@
 
 [] > check-is-ascii3
   assert-that > @
-    is-alphabetic.
+    is-ascii.
       text
-        "ascИ"
-    $.equal-to FALSE
+        "123"
+    $.equal-to TRUE
 
 [] > split-text
   assert-that > @
