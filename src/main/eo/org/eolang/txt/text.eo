@@ -360,7 +360,7 @@
   #  only via EOLANG code. We can do it by using reduce method.
   [delimiter] > split /array
 
-  # Check that all signs in string are letters.
+  # Check that all signs in string are numbers or letters.
   # Works only for english letters
   [] > is-alphabetic
     reduced. > @
@@ -378,6 +378,49 @@
               x
         and. > @
           a
+          int-is-alphabetic
+            value
+
+    [b] > int-is-alphabetic
+      or. > @
+        and.
+          gte.
+            b
+            48
+          lte.
+            b
+            57
+        and.
+          gte.
+            b
+            97
+          lte.
+            b
+            122
+
+    [b] > bytes-1-to-8
+      concat. > @
+        00-00-00-00-00-00-00
+        b
+
+  # Check that all signs in string are letters.
+  # Works only for english letters
+  [] > is-alpha
+    reduced. > @
+      list
+        bytes-as-array
+          as-bytes.
+            low-cased.
+              text
+                s
+      TRUE
+      [a x]
+        as-int. > value!
+          is-alphabetic.bytes-1-to-8
+            as-bytes.
+              x
+        and. > @
+          a
           int-is-alpha
             value
 
@@ -389,11 +432,6 @@
         lte.
           b
           122
-
-    [b] > bytes-1-to-8
-      concat. > @
-        00-00-00-00-00-00-00
-        b
 
   # Returns concatenaion of all strings
   [others...] > chained
