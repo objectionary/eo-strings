@@ -89,7 +89,7 @@
                   -1
             const-str
 
-  # Joins an array of strings, using current string
+  # Joins an tuple of strings, using current string
   # as a delimiter
   [items] > joined
     reducedi. > res!
@@ -354,11 +354,11 @@
         length.
           other
 
-  # Returns an array of strings, separated by a given string
+  # Returns an tuple of strings, separated by a given string
   # @todo #22:30min Current implementation using Java.
-  #  We should implement splitting string to array of strings
+  #  We should implement splitting string to tuple of strings
   #  only via EOLANG code. We can do it by using reduce method.
-  [delimiter] > split /array
+  [delimiter] > split /tuple
 
   # Check that all signs in string are letters.
   # Works only for english letters

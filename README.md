@@ -21,12 +21,12 @@ This is how it works:
 The object `QQ.txt.text` is a decorator of `QQ.string`.
 
 The attribute `is-empty` is TRUE if the length of the
-array is zero.
+tuple is zero.
 
 The attribute `trim` is a new string trimmed from both sides.
 
 The attribute `joined` is a string that was obtained by concatenating
-the strings from the array with the current string as a delimiter.
+the strings from the tuple with the current string as a delimiter.
 
 The attribute `contains` is TRUE if current string contains
 `substr` as a substring.
