@@ -27,7 +27,7 @@
 +home https://github.com/objectionary/eo-strings
 +junit
 +package org.eolang.txt
-+version 0.1.2
++version 0.2.0
 
 [] > text-trimmed-1
   assert-that > @
@@ -87,28 +87,28 @@
           "  "
       $.equal-to ""
 
-[] > joins-array
+[] > joins-tuple
   assert-that > @
     joined.
       text ".."
       * "foo" "друг" "bar"
     $.equal-to "foo..друг..bar"
 
-[] > joins-array-2
+[] > joins-tuple-2
   assert-that > @
     joined.
       text ", "
       * "Привет" "мир!"
     $.equal-to "Привет, мир!"
 
-[] > joins-array-3
+[] > joins-tuple-3
   assert-that > @
     joined.
       text ""
       *
     $.equal-to ""
 
-[] > joins-array-4
+[] > joins-tuple-4
   assert-that > @
     joined.
       text ""
