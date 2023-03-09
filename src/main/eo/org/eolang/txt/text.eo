@@ -38,33 +38,25 @@
 
   # Trim it from left side
   [] > left-trim
-    rec-left-trim > @
-      s
-
-    [str] > rec-left-trim
-      eq. > empty!
-        length.
-          str
-        0
-      eq. > starts-with-space!
-        slice.
-          str
-          0
-          1
-        " "
-      if. > @
-        empty
-        ""
-        if.
-          starts-with-space
-          rec-left-trim
-            slice
-              1
-              plus.
-                length.
-                  str
-                -1
-          str
+    as-string. > @
+      reduced.
+        list
+          bytes-as-array
+            s.as-bytes
+        --
+        [a x]
+          if. > @
+            and.
+              eq.
+                a.as-string
+                ""
+              eq.
+                x.as-string
+                " "
+            ""
+            concat.
+              a
+              x
 
   # Trim it from both sides
   # @todo #107:30min Current implementation of trimmed method catches stackoverflow
