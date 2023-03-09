@@ -48,7 +48,7 @@
         0
       eq. > starts-with-space!
         slice.
-          const-str
+          str
           0
           1
         " "
@@ -62,7 +62,7 @@
               1
               plus.
                 length.
-                  const-str
+                  str
                 -1
           str
 
