@@ -38,10 +38,10 @@
 
   # Trim it from left side
   [] > left-trim
-    rec-trim > @
+    rec-left-trim > @
       s
 
-    [str] > rec-trim
+    [str] > rec-left-trim
       eq. > empty!
         length.
           str
@@ -57,7 +57,7 @@
         ""
         if.
           starts-with-space
-          rec-trim
+          rec-left-trim
             slice
               1
               plus.
