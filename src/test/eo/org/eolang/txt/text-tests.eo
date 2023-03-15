@@ -656,3 +656,22 @@
   contains. > @
     text "Windows 10 (olololo)"
     "Windows"
+[] > simple-contains-string
+  assert-that > @
+    contains.
+      text "Привет, 世界"
+      "世"
+    $.equal-to TRUE
+    "constains-string"
+
+[] > check-all-contains-string
+  assert-that > @
+    and.
+      contains.
+        text "世界世界世界世界世界世界世界世界"
+        "界"
+      contains.
+        text "世界世界世界世界世界世界й世界世界"
+        "й"
+    $.equal-to TRUE
+    "constains-all-of-string"
