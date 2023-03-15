@@ -651,3 +651,8 @@
         text "漢 "
       0
     $.equal-to "漢"
+
+[] > ffff
+  contains. > @
+    text "Windows 10 (olololo)"
+    "Windows"
