@@ -36,7 +36,7 @@
     text > @
       ^.s.slice start len
 
-  # Trim it from left side
+  # Returns string trimmed from left side
   [] > left-trim
     as-string. > @
       reduced.
