@@ -89,7 +89,7 @@
                   -1
             const-str
 
-  # Joins an array of strings, using current string
+  # Joins an tuple of strings, using current string
   # as a delimiter
   [items] > joined
     reducedi. > res!
@@ -105,13 +105,34 @@
 
   # Checks that string contains substr
   [substr] > contains
-    index-of. > idx!
-      text
-        s
-      substr
-    gt. > @
-      idx
-      -1
+    substr.length > len!
+    s.length > s-len!
+    memory 0 > start
+    memory FALSE > res
+    [] > loop
+      while. > @
+        and.
+          start.lt s-len
+          lte.
+            start.plus len
+            s-len
+        [i]
+          if. > @
+            lte.
+              start.plus len
+              s-len
+            if.
+              eq.
+                s.slice start len
+                substr
+              seq
+                res.write TRUE
+                start.write s-len
+              start.write (start.plus 1)
+            FALSE
+    seq > @
+      loop
+      res
 
   # Checks that string ends with substr
   [substr] > ends-with
@@ -354,13 +375,13 @@
         length.
           other
 
-  # Returns an array of strings, separated by a given string
+  # Returns an tuple of strings, separated by a given string
   # @todo #22:30min Current implementation using Java.
-  #  We should implement splitting string to array of strings
+  #  We should implement splitting string to tuple of strings
   #  only via EOLANG code. We can do it by using reduce method.
-  [delimiter] > split /array
+  [delimiter] > split /tuple
 
-  # Check that all signs in string are letters.
+  # Check that all signs in string are numbers or letters.
   # Works only for english letters
   [] > is-alphabetic
     reduced. > @
@@ -374,6 +395,49 @@
       [a x]
         as-int. > value!
           bytes-1-to-8
+            as-bytes.
+              x
+        and. > @
+          a
+          int-is-alphabetic
+            value
+
+    [b] > int-is-alphabetic
+      or. > @
+        and.
+          gte.
+            b
+            48
+          lte.
+            b
+            57
+        and.
+          gte.
+            b
+            97
+          lte.
+            b
+            122
+
+    [b] > bytes-1-to-8
+      concat. > @
+        00-00-00-00-00-00-00
+        b
+
+  # Check that all signs in string are letters.
+  # Works only for english letters
+  [] > is-alpha
+    reduced. > @
+      list
+        bytes-as-array
+          as-bytes.
+            low-cased.
+              text
+                s
+      TRUE
+      [a x]
+        as-int. > value!
+          is-alphabetic.bytes-1-to-8
             as-bytes.
               x
         and. > @

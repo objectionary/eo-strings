@@ -25,8 +25,8 @@
 +alias org.eolang.txt.text
 +architect yegor256@gmail.com
 +home https://github.com/objectionary/eo-strings
-+junit
 +package org.eolang.txt
++tests
 +version 0.0.0
 
 [] > text-trimmed-1
@@ -87,28 +87,28 @@
           "  "
       $.equal-to ""
 
-[] > joins-array
+[] > joins-tuple
   assert-that > @
     joined.
       text ".."
       * "foo" "друг" "bar"
     $.equal-to "foo..друг..bar"
 
-[] > joins-array-2
+[] > joins-tuple-2
   assert-that > @
     joined.
       text ", "
       * "Привет" "мир!"
     $.equal-to "Привет, мир!"
 
-[] > joins-array-3
+[] > joins-tuple-3
   assert-that > @
     joined.
       text ""
       *
     $.equal-to ""
 
-[] > joins-array-4
+[] > joins-tuple-4
   assert-that > @
     joined.
       text ""
@@ -489,25 +489,46 @@
         "漢"
     $.equal-to TRUE
 
-[] > check-is-alpha
+[] > check-is-alphabetic
   assert-that > @
     is-alphabetic.
       text
         "eEo"
     $.equal-to TRUE
 
-[] > check-is-alpha-2
+[] > check-is-alphabetic-2
   assert-that > @
     is-alphabetic.
+      text
+        "ab3d"
+    $.equal-to TRUE
+
+[] > check-is-alphabetic-3
+  assert-that > @
+    is-alphabetic.
+      text
+        "-w-"
+    $.equal-to FALSE
+
+[] > check-is-alpha
+  assert-that > @
+    is-alpha.
+      text
+        "eEo"
+    $.equal-to TRUE
+
+[] > check-is-alpha-2
+  assert-that > @
+    is-alpha.
       text
         "ab3d"
     $.equal-to FALSE
 
 [] > check-is-alpha-3
   assert-that > @
-    is-alphabetic.
+    is-alpha.
       text
-        "123"
+        "-w-"
     $.equal-to FALSE
 
 [] > check-is-ascii
@@ -672,3 +693,23 @@
         text "漢 "
       0
     $.equal-to "漢"
+
+[] > simple-contains-string
+  assert-that > @
+    contains.
+      text "Привет, 世界"
+      "世"
+    $.equal-to TRUE
+    "constains-string"
+
+[] > check-all-contains-string
+  assert-that > @
+    and.
+      contains.
+        text "世界世界世界世界世界世界世界世界"
+        "界"
+      contains.
+        text "世界世界世界世界世界世界й世界世界"
+        "й"
+    $.equal-to TRUE
+    "constains-all-of-string"
