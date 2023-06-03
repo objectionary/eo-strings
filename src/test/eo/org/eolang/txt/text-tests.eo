@@ -489,25 +489,46 @@
         "漢"
     $.equal-to TRUE
 
-[] > check-is-alpha
+[] > check-is-alphabetic
   assert-that > @
     is-alphabetic.
       text
         "eEo"
     $.equal-to TRUE
 
-[] > check-is-alpha-2
+[] > check-is-alphabetic-2
   assert-that > @
     is-alphabetic.
+      text
+        "ab3d"
+    $.equal-to TRUE
+
+[] > check-is-alphabetic-3
+  assert-that > @
+    is-alphabetic.
+      text
+        "-w-"
+    $.equal-to FALSE
+
+[] > check-is-alpha
+  assert-that > @
+    is-alpha.
+      text
+        "eEo"
+    $.equal-to TRUE
+
+[] > check-is-alpha-2
+  assert-that > @
+    is-alpha.
       text
         "ab3d"
     $.equal-to FALSE
 
 [] > check-is-alpha-3
   assert-that > @
-    is-alphabetic.
+    is-alpha.
       text
-        "123"
+        "-w-"
     $.equal-to FALSE
 
 [] > split-text
