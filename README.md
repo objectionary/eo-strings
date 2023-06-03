@@ -83,5 +83,3 @@ $ mvn clean install -Pqulice
 ```
 
 You will need Maven 3.3+ and Java 8+.
-
-
