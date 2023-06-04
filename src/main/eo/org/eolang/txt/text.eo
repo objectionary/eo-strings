@@ -38,25 +38,32 @@
 
   # Returns string trimmed from left side
   [] > left-trim
-    as-string. > @
-      reduced.
-        list
-          bytes-as-array
-            s.as-bytes
-        --
-        [a x]
-          if. > @
-            and.
-              eq.
-                a.as-string
-                ""
-              eq.
-                x.as-string
-                " "
-            ""
-            concat.
-              a
-              x
+    rec-trim > @
+      s
+
+    [str] > rec-trim
+      if. > @
+        eq.
+          length.
+            str
+          0
+        ""
+        if.
+          eq.
+            slice.
+                str
+                0
+                1
+              " "
+          rec-trim
+            slice.
+              str
+              1
+              plus.
+                length.
+                  str
+                -1
+          str
 
   # Trim it from both sides
   # @todo #107:30min Current implementation of trimmed method catches stackoverflow
