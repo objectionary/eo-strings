@@ -38,10 +38,10 @@
 
   # Returns string trimmed from left side
   [] > left-trim
-    rec-trim > @
+    left-rec-trim > @
       s
 
-    [str] > rec-trim
+    [str] > left-rec-trim
       if. > @
         eq.
           length.
@@ -55,7 +55,7 @@
               0
               1
             " "
-          rec-trim
+          left-rec-trim
             slice.
               str
               1
