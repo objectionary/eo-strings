@@ -51,10 +51,10 @@
         if.
           eq.
             slice.
-                str
-                0
-                1
-              " "
+              str
+              0
+              1
+            " "
           rec-trim
             slice.
               str
