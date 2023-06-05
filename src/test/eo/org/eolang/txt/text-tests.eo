@@ -29,6 +29,48 @@
 +tests
 +version 0.0.0
 
+[] > text-left-trim-1
+  assert-that > @
+    left-trim.
+      text
+        "a b"
+    $.equal-to "a b"
+
+[] > text-left-trim-2
+  assert-that > @
+    left-trim.
+      text
+        "a b "
+    $.equal-to "a b "
+
+[] > text-left-trim-3
+  assert-that > @
+    left-trim.
+      text
+        " a b "
+    $.equal-to "a b "
+
+[] > text-left-trim-4
+  assert-that > @
+    left-trim.
+      text
+        " a b"
+    $.equal-to "a b"
+
+[] > text-left-trim-space
+  assert-that > @
+    left-trim.
+      text
+        " "
+    $.equal-to ""
+
+[] > text-left-trim-double-space
+  assert-that > @
+    left-trim.
+      text
+        "  "
+    $.equal-to ""
+
 [] > text-trimmed-1
   assert-that > @
     trimmed.

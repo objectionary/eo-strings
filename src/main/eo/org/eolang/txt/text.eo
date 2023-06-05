@@ -36,6 +36,35 @@
     text > @
       ^.s.slice start len
 
+  # Returns string trimmed from left side
+  [] > left-trim
+    left-rec-trim > @
+      s
+
+    [str] > left-rec-trim
+      if. > @
+        eq.
+          length.
+            str
+          0
+        ""
+        if.
+          eq.
+            slice.
+              str
+              0
+              1
+            " "
+          left-rec-trim
+            slice.
+              str
+              1
+              plus.
+                length.
+                  str
+                -1
+          str
+
   # Trim it from both sides
   # @todo #107:30min Current implementation of trimmed method catches stackoverflow
   #  for tests where both sides of strings are changing or just more than one space

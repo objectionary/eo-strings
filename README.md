@@ -20,8 +20,7 @@ This is how it works:
 ### Text
 The object `QQ.txt.text` is a decorator of `QQ.string`.
 
-The attribute `is-empty` is TRUE if the length of the
-tuple is zero.
+The attribute `is-empty` is TRUE if the length of the tuple is zero.
 
 The attribute `trim` is a new string trimmed from both sides.
 
@@ -83,5 +82,3 @@ $ mvn clean install -Pqulice
 ```
 
 You will need Maven 3.3+ and Java 8+.
-
-
