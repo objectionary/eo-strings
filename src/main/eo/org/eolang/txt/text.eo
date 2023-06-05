@@ -132,6 +132,13 @@
           (acc.concat x.as-bytes).concat s.as-bytes
     res.as-string > @
 
+  # Returns string repeated n times
+  # @todo #140:30min We have to implement this method.
+  #  It should return string repeated n times.
+  #  We can do it by cheking current length in recused method.
+  [n] > repeated
+    "" > @
+
   # Checks that string contains substr
   [substr] > contains
     substr.length > len!
