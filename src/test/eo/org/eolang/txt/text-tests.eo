@@ -755,3 +755,43 @@
         "й"
     $.equal-to TRUE
     "constains-all-of-string"
+
+[] > repeated-empty
+  assert-that > @
+    repeated.
+      text
+        ""
+      3
+    $.equal-to ""
+
+[] > repeated-zero
+  assert-that > @
+    repeated.
+      text
+        "abc"
+      0
+    $.equal-to ""
+
+[] > repeated-one
+  assert-that > @
+    repeated.
+      text
+        "abc"
+      1
+    $.equal-to "abc"
+
+[] > repeated-many-times
+  assert-that > @
+    repeated.
+      text
+        "abc"
+      3
+    $.equal-to "abcabcabc"
+
+[] > repeated-unicode
+  assert-that > @
+    repeated.
+      text
+        "漢"
+      3
+    $.equal-to "漢漢漢"
