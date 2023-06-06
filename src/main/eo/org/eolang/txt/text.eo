@@ -133,9 +133,6 @@
     res.as-string > @
 
   # Returns string repeated n times
-  # @todo #140:30min We have to implement this method.
-  #  It should return string repeated n times.
-  #  We can do it by cheking current length in reduced method.
   [n] > repeated
     "" > @
 
