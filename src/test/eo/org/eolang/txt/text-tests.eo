@@ -757,46 +757,41 @@
     "constains-all-of-string"
 
 [] > repeated-empty
-  nop > @
-    assert-that
-      repeated.
-        text
-          ""
-        3
-      $.equal-to ""
+  assert-that > @
+    repeated.
+      text
+        ""
+      3
+    $.equal-to ""
 
 [] > repeated-zero
-  nop > @
-    assert-that
-      repeated.
-        text
-          "abc"
-        0
-      $.equal-to ""
+  assert-that > @
+    repeated.
+      text
+        "abc"
+      0
+    $.equal-to ""
 
 [] > repeated-one
-  nop > @
-    assert-that
-      repeated.
-        text
-          "abc"
-        1
-      $.equal-to "abc"
+  assert-that > @
+    repeated.
+      text
+        "abc"
+      1
+    $.equal-to "abc"
 
 [] > repeated-many-times
-  nop > @
-    assert-that
-      repeated.
-        text
-          "abc"
-        3
-      $.equal-to "abcabcabc"
+  assert-that > @
+    repeated.
+      text
+        "abc"
+      3
+    $.equal-to "abcabcabc"
 
 [] > repeated-unicode
-  nop > @
-    assert-that
-      repeated.
-        text
-          "漢"
-        3
-      $.equal-to "漢漢漢"
+  assert-that > @
+    repeated.
+      text
+        "漢"
+      3
+    $.equal-to "漢漢漢"
