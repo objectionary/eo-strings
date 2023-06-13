@@ -26,8 +26,8 @@
 +architect yegor256@gmail.com
 +home https://github.com/objectionary/eo-strings
 +package org.eolang.txt
-+rt jvm org.eolang:eo-strings:0.3.0
-+version 0.3.0
++rt jvm org.eolang:eo-strings:0.4.0
++version 0.4.0
 
 [s] > text
   s > @
@@ -133,11 +133,25 @@
     res.as-string > @
 
   # Returns string repeated n times
-  # @todo #140:30min We have to implement this method.
-  #  It should return string repeated n times.
-  #  We can do it by cheking current length in reduced method.
   [n] > repeated
-    "" > @
+    rec-repeated > @
+      s
+      n
+
+    [str n] > rec-repeated
+      if. > @
+        eq.
+          n
+          0
+        ""
+        chained.
+          text
+            str
+          rec-repeated
+            str
+            minus.
+              n
+              1
 
   # Checks that string contains substr
   [substr] > contains
