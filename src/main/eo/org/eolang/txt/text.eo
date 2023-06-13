@@ -145,7 +145,8 @@
           0
         ""
         chained.
-          s
+          text
+            str
           rec-repeated
             str
             minus.
