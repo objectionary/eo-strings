@@ -134,7 +134,23 @@
 
   # Returns string repeated n times
   [n] > repeated
-    "" > @
+    rec-repeated > @
+      s
+      n
+
+    [str n] > rec-repeated
+      if. > @
+        eq.
+          n
+          0
+        ""
+        chained.
+          s
+          rec-repeated
+            str
+            minus.
+              n
+              1
 
   # Checks that string contains substr
   [substr] > contains
