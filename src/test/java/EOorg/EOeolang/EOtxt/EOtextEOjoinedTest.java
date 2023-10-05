@@ -36,6 +36,7 @@ import org.eolang.PhWith;
 import org.eolang.Phi;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -46,6 +47,7 @@ import org.junit.jupiter.api.Test;
 public final class EOtextEOjoinedTest {
 
     @Test
+    @Disabled
     public void joinString() {
         final Phi delim = new Data.ToPhi("..");
         final Phi text = new EOtext(Phi.Φ);

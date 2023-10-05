@@ -125,7 +125,7 @@
       list
         items
       "".as-bytes
-      [acc i x]
+      [acc x i]
         if. > @
           i.eq (items.length.minus 1)
           acc.concat x.as-bytes
@@ -210,7 +210,7 @@
       list
         bytes-view
       -1
-      [a i x]
+      [a x i]
         check-if-starts-from-index > res!
           s
           substr
@@ -290,7 +290,7 @@
       list
         bytes-view
       -1
-      [a i x]
+      [a x i]
         index-of.check-if-starts-from-index > res!
           s
           substr
@@ -389,7 +389,7 @@
         list
           b1
         0
-        [a i x]
+        [a x i]
           if. > res!
             eq.
               at.
