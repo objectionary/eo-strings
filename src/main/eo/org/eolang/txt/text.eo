@@ -162,27 +162,29 @@
     [] > loop
       while. > @
         and.
-          start.lt s-len
+          start.as-int.lt s-len
           lte.
-            start.plus len
+            start.as-int.plus len
             s-len
         [i]
           if. > @
             lte.
-              start.plus len
+              start.as-int.plus len
               s-len
             if.
               eq.
-                s.slice start len
+                s.slice
+                  start.as-int
+                  len
                 substr
               seq
                 res.write TRUE
                 start.write s-len
-              start.write (start.plus 1)
+              start.write (start.as-int.plus 1)
             FALSE
     seq > @
       loop
-      res
+      res.as-bool
 
   # Checks that string ends with substr
   [substr] > ends-with
