@@ -47,7 +47,6 @@ import org.junit.jupiter.api.Test;
 public final class EOtextEOjoinedTest {
 
     @Test
-    @Disabled
     public void joinString() {
         final Phi delim = new Data.ToPhi("..");
         final Phi text = new EOtext(Phi.Φ);
