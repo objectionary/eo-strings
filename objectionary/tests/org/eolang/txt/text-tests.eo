@@ -27,15 +27,8 @@
 +home https://github.com/objectionary/eo-strings
 +package org.eolang.txt
 +tests
-+version 0.5.0
++version 0.6.0
 
-# @todo #165:30min Enable the tests when eo-collections 0.10.0 is in objectionary. Need to enable
-#  next tests that were disabled because of conflict with eo-collections 0.10.0:
-#  text-last-index-of-3, unicode-text-last-index-of, nested-joins, text-last-index-of-3,
-#  text-index-of-4, compare-strings, joins-tuple, joins-tuple-2, text-index-of-5,
-#  compare-similar-strings, text-index-of, compare-strings-2, text-last-index-of,
-#  text-last-index-of-2, joins-tuple-4, compare-strings-with-unicode,
-#  EOtextEOjoinedTest.joinStrings
 [] > text-left-trim-1
   assert-that > @
     left-trim.
@@ -137,20 +130,18 @@
       $.equal-to ""
 
 [] > joins-tuple
-  assert-that > res
+  assert-that > @
     joined.
       text ".."
       * "foo" "друг" "bar"
     $.equal-to "foo..друг..bar"
-  nop > @
 
 [] > joins-tuple-2
-  assert-that > res
+  assert-that > @
     joined.
       text ", "
       * "Привет" "мир!"
     $.equal-to "Привет, мир!"
-  nop > @
 
 [] > joins-tuple-3
   assert-that > @
@@ -160,15 +151,14 @@
     $.equal-to ""
 
 [] > joins-tuple-4
-  assert-that > res
+  assert-that > @
     joined.
       text ""
       * "foo" "друг" "bar"
     $.equal-to "fooдругbar"
-  nop > @
 
 [] > nested-joins
-  assert-that > res
+  assert-that > @
     joined.
       text
         joined.
@@ -176,7 +166,6 @@
           * " " " "
       * "start" "end"
     $.equal-to "start & end"
-  nop > @
 
 [] > text-lower-case-1
   assert-that > @
@@ -284,10 +273,9 @@
     $.equal-to FALSE
 
 [] > text-index-of
-  assert-that > res
+  assert-that > @
     (text "ab").index-of "ab"
     $.equal-to 0
-  nop > @
 
 [] > text-index-of-2
   nop > @
@@ -302,16 +290,14 @@
       $.equal-to 1
 
 [] > text-index-of-4
-  assert-that > res
+  assert-that > @
     (text "a").index-of "a"
     $.equal-to 0
-  nop > @
 
 [] > text-index-of-5
-  assert-that > res
+  assert-that > @
     (text "a").index-of "b"
     $.equal-to -1
-  nop > @
 
 [] > text-check-if-starts-from-index
   assert-that > @
@@ -344,28 +330,24 @@
     $.equal-to FALSE
 
 [] > text-last-index-of
-  assert-that > res
+  assert-that > @
     (text "4 2").last-index-of "2"
     $.equal-to 2
-  nop > @
 
 [] > text-last-index-of-2
-  assert-that > res
+  assert-that > @
     (text "here").last-index-of " here"
     $.equal-to -1
-  nop > @
 
 [] > text-last-index-of-3
-  assert-that > res
+  assert-that > @
     (text "ab abc").last-index-of "ab"
     $.equal-to 3
-  nop > @
 
 [] > text-last-index-of-4
-  assert-that > res
+  assert-that > @
     (text "Hello").last-index-of "Hello"
     $.equal-to 0
-  nop > @
 
 [] > empty-text-last-index-of
   assert-that > @
@@ -373,10 +355,9 @@
     $.equal-to -1
 
 [] > unicode-text-last-index-of
-  assert-that > res
+  assert-that > @
     (text "a世").last-index-of "世"
     $.equal-to 1
-  nop > @
 
 [] > at-returns-one-character
   assert-that > @
@@ -493,16 +474,15 @@
     $.equal-to -0.01
 
 [] > compare-similar-strings
-  assert-that > res
+  assert-that > @
     compare.
       text
         "aB"
       "aB"
     $.equal-to 0
-  nop > @
 
 [] > compare-strings
-  assert-that > res
+  assert-that > @
     lt.
       0
       compare.
@@ -510,10 +490,9 @@
           "ab"
         "aB"
     $.equal-to TRUE
-  nop > @
 
 [] > compare-strings-2
-  assert-that > res
+  assert-that > @
     gt.
       0
       compare.
@@ -521,7 +500,6 @@
           "A"
         "a"
     $.equal-to TRUE
-  nop > @
 
 [] > compare-strings-with-different-length
   assert-that > @
@@ -544,7 +522,7 @@
     $.equal-to FALSE
 
 [] > compare-strings-with-unicode
-  assert-that > res
+  assert-that > @
     gt.
       0
       compare.
@@ -552,7 +530,6 @@
           "y"
         "漢"
     $.equal-to TRUE
-  nop > @
 
 [] > check-is-alphabetic
   assert-that > @

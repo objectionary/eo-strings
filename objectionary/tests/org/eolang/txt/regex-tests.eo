@@ -27,7 +27,7 @@
 +home https://github.com/objectionary/eo-strings
 +package org.eolang.txt
 +tests
-+version 0.5.0
++version 0.6.0
 
 # @todo #148:30min To enable tests with regex.replaced object.
 #  For some unknown reason, the tests with regex.replaced object
